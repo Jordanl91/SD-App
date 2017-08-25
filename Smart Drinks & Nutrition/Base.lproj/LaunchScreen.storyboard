@@ -21,17 +21,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Smart Drinks &amp; Nutrition" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zrf-dU-FvL">
-                                <rect key="frame" x="74.5" y="321" width="226.5" height="25.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo_W_Title" translatesAutoresizingMaskIntoConstraints="NO" id="Q5Z-w5-aWX">
+                                <rect key="frame" x="72" y="302" width="230" height="62"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="62" id="mrj-c6-d7o"/>
+                                    <constraint firstAttribute="width" constant="230" id="zlR-Bg-FPX"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="zrf-dU-FvL" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Mwy-x2-ZD3"/>
-                            <constraint firstItem="zrf-dU-FvL" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="mbg-5u-bid"/>
+                            <constraint firstItem="Q5Z-w5-aWX" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="5mh-Fv-7eb"/>
+                            <constraint firstItem="Q5Z-w5-aWX" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Cbg-fF-y08"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -40,4 +41,7 @@
             <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Logo_W_Title" width="130" height="33"/>
+    </resources>
 </document>
