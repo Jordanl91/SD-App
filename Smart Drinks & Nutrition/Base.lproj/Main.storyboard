@@ -83,7 +83,7 @@
                             <constraint firstAttribute="centerY" secondItem="zEq-FU-wV5" secondAttribute="centerY" id="qzY-Ky-pLD"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Nutrition" image="first" selectedImage="first" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Nutrition" image="Nutrition" selectedImage="Nutrition" id="cPa-gy-q4n"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
@@ -114,7 +114,7 @@
                             <constraint firstItem="csZ-o4-GUS" firstAttribute="centerY" secondItem="bGQ-o8-ooe" secondAttribute="centerY" id="i0l-4g-THJ"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Coupons" image="first" selectedImage="first" id="eLw-N8-3py"/>
+                    <tabBarItem key="tabBarItem" title="Coupons" image="Coupons" selectedImage="Coupons" id="eLw-N8-3py"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s2H-yJ-qgn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -145,13 +145,13 @@
                             <constraint firstItem="HyU-kf-Xe8" firstAttribute="centerX" secondItem="qOR-9r-Q45" secondAttribute="centerX" id="CRP-gY-OIY"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Locations" image="second" selectedImage="second" id="KzA-ar-qlv"/>
+                    <tabBarItem key="tabBarItem" title="Locations" image="Locations" selectedImage="Locations" id="KzA-ar-qlv"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mdk-Ga-suT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1576.8" y="-321.58920539730138"/>
         </scene>
-        <!--Recipies-->
+        <!--Recipes-->
         <scene sceneID="Wzc-AY-o0I">
             <objects>
                 <viewController id="vhq-SB-G9g" sceneMemberID="viewController">
@@ -176,7 +176,7 @@
                             <constraint firstItem="Jmn-Sn-7i3" firstAttribute="centerX" secondItem="D5P-yQ-i7D" secondAttribute="centerX" id="Kfe-sB-LdL"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Recipies" image="second" selectedImage="second" id="ELB-AL-ix4"/>
+                    <tabBarItem key="tabBarItem" title="Recipes" image="Recipes" selectedImage="Recipes" id="ELB-AL-ix4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zDc-fd-ETS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -206,8 +206,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Coupons" width="30" height="20"/>
         <image name="Drinks" width="14" height="23"/>
-        <image name="first" width="30" height="30"/>
-        <image name="second" width="30" height="30"/>
+        <image name="Locations" width="24" height="24"/>
+        <image name="Nutrition" width="25" height="28"/>
+        <image name="Recipes" width="25" height="28"/>
     </resources>
 </document>
