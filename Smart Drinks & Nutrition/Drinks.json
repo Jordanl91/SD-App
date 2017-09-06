@@ -1,0 +1,73 @@
+{
+    "Smart Smoothies":[
+                       {
+                       "name":"SMART FUEL TM",
+                       "description":"(Banana, Pinaeapple, 2% Milk, Honey, Turbinado and Protein)"
+                       },
+                       {
+                       "name":"SMART MEAL TM\nSMART MEAL TM\n",
+                       "description":"(Banana, Orange Juice, 2% Milk, Turbinado, Meal Replacement)"
+                       },
+                       {
+                       "name":"SMART BLASST TM",
+                       "description":"(Chocolate Protein, Honey, 2% Milk, Turbinado)"
+                       },
+                       {
+                       "name":"SMART FUSION TM",
+                       "description":"(Pineapple, Strawberry, Antioxidant, 2% Milk, Turbinado)"
+                       },
+                       {
+                       "name":"SMART BURNER TM",
+                       "description":"(Blueberry, Banana, Fat Burner, 2% Milk, Turbinado)"
+                       },
+                       {
+                       "name":"SMART LOW CARB TM\n",
+                       "description":"(Banana, Strawberry, 2% Milk, Turbinado, Low Carb Protein)"
+                       }
+                       ],
+    "Fruit Smoothies":[
+                       {
+                       "name":"BANANA VANILLA            ",
+                       "description":"(Banana, Vanilla, 2% Milk and Turbinado)"
+                       },
+                       {
+                       "name":"STRAWBERRY BANANA",
+                       "description":"(Strawberry, Banana, 2% Milk and Turbinado)"
+                       },
+                       {
+                       "name":"MANGO PEACH",
+                       "description":"(Mango, Peach, 2% Milk and Turbinado)"
+                       },
+                       {
+                       "name":"Tropical",
+                       "description":"(Pineapple, Mango, Banana, Orange, 2% Milk and Turbinado)"
+                       }
+                       ],
+    "Boosters":[  
+                "PROTEIN",
+                "CREATINE",
+                "MULTI-VITAMINS",
+                "FIBER",
+                "FAT BURNER\n        ",
+                "IMMUNE",
+                "SPRIRULINA",
+                "GINSENG",
+                " ANTI-OXIDANT\n        ",
+                "SPINACH",
+                "KALE",
+                "GINGER",
+                "LIME",
+                "BEETS",
+                "CARROTS"
+                ],
+    "Additional Flavors":[
+                           "PEACH",
+                           "MANGO",
+                           "BANANA",
+                           "STRAWBERRsY",
+                           "CHOCOLATE",
+                           "BLUEBERRY",
+                           "PINEAPPLE",
+                           "VANILLA"
+                           ]
+}

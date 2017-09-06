@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		65344D2A1F5F759800772243 /* Drinks.plist in Resources */ = {isa = PBXBuildFile; fileRef = 65344D291F5F759800772243 /* Drinks.plist */; };
+		653772B41F5FA10200F2B855 /* Drinks.json in Resources */ = {isa = PBXBuildFile; fileRef = 653772B31F5FA10200F2B855 /* Drinks.json */; };
+		653772B61F5FABC400F2B855 /* DrinksDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653772B51F5FABC400F2B855 /* DrinksDetailTableViewController.swift */; };
 		65AEC6D01F4F99E20059F87E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AEC6CF1F4F99E20059F87E /* AppDelegate.swift */; };
 		65AEC6D21F4F99E20059F87E /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AEC6D11F4F99E20059F87E /* FirstViewController.swift */; };
 		65AEC6D41F4F99E20059F87E /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AEC6D31F4F99E20059F87E /* SecondViewController.swift */; };
@@ -37,6 +39,8 @@
 
 /* Begin PBXFileReference section */
 		65344D291F5F759800772243 /* Drinks.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Drinks.plist; sourceTree = "<group>"; };
+		653772B31F5FA10200F2B855 /* Drinks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Drinks.json; sourceTree = "<group>"; };
+		653772B51F5FABC400F2B855 /* DrinksDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrinksDetailTableViewController.swift; sourceTree = "<group>"; };
 		65AEC6CC1F4F99E20059F87E /* Smart Drinks & Nutrition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Smart Drinks & Nutrition.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		65AEC6CF1F4F99E20059F87E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65AEC6D11F4F99E20059F87E /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -105,7 +109,9 @@
 				65AEC6D11F4F99E20059F87E /* FirstViewController.swift */,
 				65AEC6D31F4F99E20059F87E /* SecondViewController.swift */,
 				65AEC6D51F4F99E20059F87E /* Main.storyboard */,
+				653772B51F5FABC400F2B855 /* DrinksDetailTableViewController.swift */,
 				65344D291F5F759800772243 /* Drinks.plist */,
+				653772B31F5FA10200F2B855 /* Drinks.json */,
 				65AEC6D81F4F99E30059F87E /* Assets.xcassets */,
 				65AEC6DA1F4F99E30059F87E /* LaunchScreen.storyboard */,
 				65AEC6DD1F4F99E30059F87E /* Info.plist */,
@@ -242,6 +248,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				65AEC6DC1F4F99E30059F87E /* LaunchScreen.storyboard in Resources */,
+				653772B41F5FA10200F2B855 /* Drinks.json in Resources */,
 				65344D2A1F5F759800772243 /* Drinks.plist in Resources */,
 				65AEC6D91F4F99E30059F87E /* Assets.xcassets in Resources */,
 				65AEC6D71F4F99E20059F87E /* Main.storyboard in Resources */,
@@ -270,6 +277,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				65AEC6D41F4F99E20059F87E /* SecondViewController.swift in Sources */,
+				653772B61F5FABC400F2B855 /* DrinksDetailTableViewController.swift in Sources */,
 				65AEC6D01F4F99E20059F87E /* AppDelegate.swift in Sources */,
 				65AEC6D21F4F99E20059F87E /* FirstViewController.swift in Sources */,
 			);
