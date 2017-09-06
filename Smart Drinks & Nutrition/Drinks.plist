@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Smart Smoothies</key>
+	<array>
+		<dict>
+			<key>name</key>
+			<string>SMART FUEL TM</string>
+			<key>description</key>
+			<string>(Banana, Pinaeapple, 2% Milk, Honey, Turbinado and Protein)</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>SMART MEAL TM
+SMART MEAL TM
+</string>
+			<key>description</key>
+			<string>(Banana, Orange Juice, 2% Milk, Turbinado, Meal Replacement)</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>SMART BLASST TM</string>
+			<key>description</key>
+			<string>(Chocolate Protein, Honey, 2% Milk, Turbinado)</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>SMART FUSION TM</string>
+			<key>description</key>
+			<string>(Pineapple, Strawberry, Antioxidant, 2% Milk, Turbinado)</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>SMART BURNER TM</string>
+			<key>description</key>
+			<string>(Blueberry, Banana, Fat Burner, 2% Milk, Turbinado)</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>SMART LOW CARB TM
+</string>
+			<key>description</key>
+			<string>(Banana, Strawberry, 2% Milk, Turbinado, Low Carb Protein)</string>
+		</dict>
+	</array>
+	<key>Fruit Smoothies</key>
+	<array>
+		<dict>
+			<key>name</key>
+			<string>BANANA VANILLA            </string>
+			<key>description</key>
+			<string>(Banana, Vanilla, 2% Milk and Turbinado)</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>STRAWBERRY BANANA</string>
+			<key>description</key>
+			<string>(Strawberry, Banana, 2% Milk and Turbinado)</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>MANGO PEACH</string>
+			<key>description</key>
+			<string>(Mango, Peach, 2% Milk and Turbinado)</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Tropical</string>
+			<key>description</key>
+			<string>(Pineapple, Mango, Banana, Orange, 2% Milk and Turbinado)</string>
+		</dict>
+	</array>
+	<key>Boosters</key>
+	<array>
+		<string>PROTEIN</string>
+		<string>CREATINE</string>
+		<string>MULTI-VITAMINS</string>
+		<string>FIBER</string>
+		<string>FAT BURNER
+        </string>
+		<string>IMMUNE</string>
+		<string>SPRIRULINA</string>
+		<string>GINSENG</string>
+		<string> ANTI-OXIDANT
+        </string>
+		<string>SPINACH</string>
+		<string>KALE</string>
+		<string>GINGER</string>
+		<string>LIME</string>
+		<string>BEETS</string>
+		<string>CARROTS</string>
+	</array>
+	<key>Additional Flavours</key>
+	<array>
+		<string>PEACH</string>
+		<string>MANGO</string>
+		<string>BANANA</string>
+		<string>STRAWBERRY</string>
+		<string>CHOCOLATE</string>
+		<string>BLUEBERRY</string>
+		<string>PINEAPPLE</string>
+		<string>VANILLA</string>
+	</array>
+</dict>
+</plist>

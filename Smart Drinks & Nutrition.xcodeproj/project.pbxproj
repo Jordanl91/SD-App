@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		65344D2A1F5F759800772243 /* Drinks.plist in Resources */ = {isa = PBXBuildFile; fileRef = 65344D291F5F759800772243 /* Drinks.plist */; };
 		65AEC6D01F4F99E20059F87E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AEC6CF1F4F99E20059F87E /* AppDelegate.swift */; };
 		65AEC6D21F4F99E20059F87E /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AEC6D11F4F99E20059F87E /* FirstViewController.swift */; };
 		65AEC6D41F4F99E20059F87E /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AEC6D31F4F99E20059F87E /* SecondViewController.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		65344D291F5F759800772243 /* Drinks.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Drinks.plist; sourceTree = "<group>"; };
 		65AEC6CC1F4F99E20059F87E /* Smart Drinks & Nutrition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Smart Drinks & Nutrition.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		65AEC6CF1F4F99E20059F87E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65AEC6D11F4F99E20059F87E /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				65AEC6D11F4F99E20059F87E /* FirstViewController.swift */,
 				65AEC6D31F4F99E20059F87E /* SecondViewController.swift */,
 				65AEC6D51F4F99E20059F87E /* Main.storyboard */,
+				65344D291F5F759800772243 /* Drinks.plist */,
 				65AEC6D81F4F99E30059F87E /* Assets.xcassets */,
 				65AEC6DA1F4F99E30059F87E /* LaunchScreen.storyboard */,
 				65AEC6DD1F4F99E30059F87E /* Info.plist */,
@@ -239,6 +242,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				65AEC6DC1F4F99E30059F87E /* LaunchScreen.storyboard in Resources */,
+				65344D2A1F5F759800772243 /* Drinks.plist in Resources */,
 				65AEC6D91F4F99E30059F87E /* Assets.xcassets in Resources */,
 				65AEC6D71F4F99E20059F87E /* Main.storyboard in Resources */,
 			);
@@ -423,6 +427,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 74HJYZD4EF;
 				INFOPLIST_FILE = "Smart Drinks & Nutrition/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "net.techsoftinc.Smart-Drinks---Nutrition";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -436,6 +441,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 74HJYZD4EF;
 				INFOPLIST_FILE = "Smart Drinks & Nutrition/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "net.techsoftinc.Smart-Drinks---Nutrition";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -520,6 +526,7 @@
 				65AEC6F81F4F99E30059F87E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		65AEC6F91F4F99E30059F87E /* Build configuration list for PBXNativeTarget "Smart Drinks & NutritionTests" */ = {
 			isa = XCConfigurationList;
@@ -528,6 +535,7 @@
 				65AEC6FB1F4F99E30059F87E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		65AEC6FC1F4F99E30059F87E /* Build configuration list for PBXNativeTarget "Smart Drinks & NutritionUITests" */ = {
 			isa = XCConfigurationList;
@@ -536,6 +544,7 @@
 				65AEC6FE1F4F99E30059F87E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

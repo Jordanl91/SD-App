@@ -269,8 +269,8 @@
                     <connections>
                         <segue destination="mgL-bm-yFy" kind="relationship" relationship="viewControllers" id="hnr-rO-fSf"/>
                         <segue destination="Grg-Vq-khr" kind="relationship" relationship="viewControllers" id="bMg-4g-bB3"/>
-                        <segue destination="uaZ-sE-yvF" kind="relationship" relationship="viewControllers" id="1Og-VS-Foi"/>
                         <segue destination="wGk-Cu-vHc" kind="relationship" relationship="viewControllers" id="9LZ-QO-E6A"/>
+                        <segue destination="uaZ-sE-yvF" kind="relationship" relationship="viewControllers" id="1Og-VS-Foi"/>
                         <segue destination="wb1-6L-6La" kind="relationship" relationship="viewControllers" id="sSX-fC-uYa"/>
                     </connections>
                 </tabBarController>
