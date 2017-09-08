@@ -122,19 +122,36 @@
         <!--Nutritions-->
         <scene sceneID="WfO-bZ-Im1">
             <objects>
-                <tableViewController id="IM6-TZ-WwZ" sceneMemberID="viewController">
+                <tableViewController id="IM6-TZ-WwZ" customClass="NutritionTableViewController" customModule="Smart_Drinks___Nutrition" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="dx8-Rg-393">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="da6-xC-cQf">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NUTRITION_CELL" id="da6-xC-cQf" customClass="NutritionTableViewCell" customModule="Smart_Drinks___Nutrition" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="da6-xC-cQf" id="ryB-cu-KBa">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VJa-6H-5dd">
+                                            <rect key="frame" x="8" y="0.0" width="359" height="36"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="VJa-6H-5dd" secondAttribute="bottom" constant="8" id="K3p-5n-IjE"/>
+                                        <constraint firstItem="VJa-6H-5dd" firstAttribute="leading" secondItem="ryB-cu-KBa" secondAttribute="leading" constant="8" id="V8b-8L-c1e"/>
+                                        <constraint firstItem="VJa-6H-5dd" firstAttribute="top" secondItem="ryB-cu-KBa" secondAttribute="top" id="eNx-ba-DTb"/>
+                                        <constraint firstAttribute="trailing" secondItem="VJa-6H-5dd" secondAttribute="trailing" constant="8" id="l8S-2D-d5t"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nutritionDetailText" destination="VJa-6H-5dd" id="xas-B0-WsM"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -146,7 +163,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X1Q-Tf-cDE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="940" y="802"/>
+            <point key="canvasLocation" x="940" y="801.94902548725645"/>
         </scene>
         <!--Locations-->
         <scene sceneID="olu-Zh-7kv">
