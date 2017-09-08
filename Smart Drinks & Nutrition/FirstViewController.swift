@@ -16,8 +16,8 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var drinksTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.barTintColor = UIColor.init(red: 255/255, green: 70/255, blue: 50/255, alpha: 1)
-        drinksTableView.backgroundColor = UIColor.init(red: 255/255, green: 70/255, blue: 50/255, alpha: 1)
+//        self.navigationController?.navigationBar.barTintColor = UIColor.init(red: 100/255, green: 80/255, blue: 200/255, alpha: 1)
+        //drinksTableView.backgroundColor = UIColor.init(red: 100/255, green: 80/255, blue: 200/255, alpha: 1)
         //self.navigationController?.navigationBar.tintColor = UIColor.white
         self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         self.navigationController?.navigationBar.isTranslucent = false
@@ -37,7 +37,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DRINKS_CELL")
         cell?.textLabel?.text = drinksCategories[indexPath.row]
-        cell?.textLabel?.textColor = UIColor.white
+//        cell?.textLabel?.textColor = UIColor.white
         return cell!
     }
     

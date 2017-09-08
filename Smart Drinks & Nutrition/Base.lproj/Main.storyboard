@@ -46,10 +46,9 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pfU-li-uby" id="El0-hr-Vao">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="1" green="0.27450980392156865" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -108,7 +107,6 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="1" green="0.27450980390000002" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -121,7 +119,7 @@
             </objects>
             <point key="canvasLocation" x="1708" y="-889"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Nutritions-->
         <scene sceneID="WfO-bZ-Im1">
             <objects>
                 <tableViewController id="IM6-TZ-WwZ" sceneMemberID="viewController">
@@ -144,13 +142,13 @@
                             <outlet property="delegate" destination="IM6-TZ-WwZ" id="nF6-SQ-mqa"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="bYF-V0-jEO"/>
+                    <navigationItem key="navigationItem" title="Nutritions" id="bYF-V0-jEO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X1Q-Tf-cDE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="940" y="802"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Locations-->
         <scene sceneID="olu-Zh-7kv">
             <objects>
                 <tableViewController id="lGC-p7-h4O" sceneMemberID="viewController">
@@ -173,7 +171,7 @@
                             <outlet property="delegate" destination="lGC-p7-h4O" id="jN8-CP-rHp"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="Bxy-e7-cj2"/>
+                    <navigationItem key="navigationItem" title="Locations" id="Bxy-e7-cj2"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lMe-2t-hjj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -213,7 +211,7 @@
             </objects>
             <point key="canvasLocation" x="-12" y="802"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Coupons-->
         <scene sceneID="zBg-9x-FrA">
             <objects>
                 <tableViewController id="gjM-KM-vK2" sceneMemberID="viewController">
@@ -236,13 +234,13 @@
                             <outlet property="delegate" destination="gjM-KM-vK2" id="A3L-nJ-kdl"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="N61-3V-n6z"/>
+                    <navigationItem key="navigationItem" title="Coupons" id="N61-3V-n6z"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qMJ-rH-x19" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1495" y="-220"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Rewards-->
         <scene sceneID="Fmj-PO-Uwu">
             <objects>
                 <tableViewController id="at6-IV-OJk" sceneMemberID="viewController">
@@ -265,7 +263,7 @@
                             <outlet property="delegate" destination="at6-IV-OJk" id="VMg-QX-SSO"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="X1P-0E-2fR"/>
+                    <navigationItem key="navigationItem" title="Rewards" id="X1P-0E-2fR"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aLO-VQ-4ym" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

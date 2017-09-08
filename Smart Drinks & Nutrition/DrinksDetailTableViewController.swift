@@ -16,8 +16,8 @@ class DrinksDetailTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.navigationBar.barTintColor = UIColor.init(red: 255/255, green: 70/255, blue: 50/255, alpha: 1)
-        tableView.backgroundColor = UIColor.init(red: 255/255, green: 70/255, blue: 50/255, alpha: 1)
+//        self.navigationController?.navigationBar.barTintColor = UIColor.init(red: 255/255, green: 70/255, blue: 50/255, alpha: 1)
+//        tableView.backgroundColor = UIColor.init(red: 255/255, green: 70/255, blue: 50/255, alpha: 1)
         //self.navigationController?.navigationBar.tintColor = UIColor.white
         self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         self.navigationController?.navigationBar.isTranslucent = false
@@ -61,8 +61,8 @@ class DrinksDetailTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DETAIL_DRINKS_CELL")
         cell?.textLabel?.text = drinkNames[indexPath.row]
-        cell?.textLabel?.textColor = UIColor.white
-        cell?.detailTextLabel?.textColor = UIColor.white
+//        cell?.textLabel?.textColor = UIColor.white
+//        cell?.detailTextLabel?.textColor = UIColor.white
         if drinkRecipe.count != 0{
             cell?.detailTextLabel?.text = drinkRecipe[indexPath.row]
         }else{
