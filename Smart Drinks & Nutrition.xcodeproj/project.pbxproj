@@ -12,6 +12,9 @@
 		653772B61F5FABC400F2B855 /* DrinksDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653772B51F5FABC400F2B855 /* DrinksDetailTableViewController.swift */; };
 		6586B4DB1F626A5B00CA1AD7 /* NutritionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6586B4DA1F626A5B00CA1AD7 /* NutritionTableViewController.swift */; };
 		6586B4DD1F626C0E00CA1AD7 /* NutritionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6586B4DC1F626C0E00CA1AD7 /* NutritionTableViewCell.swift */; };
+		6586B4E01F64D58200CA1AD7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6586B4DF1F64D58200CA1AD7 /* CoreLocation.framework */; };
+		6586B4E21F65F5F600CA1AD7 /* LocationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6586B4E11F65F5F500CA1AD7 /* LocationsTableViewController.swift */; };
+		6586B4E41F65F81500CA1AD7 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6586B4E31F65F81500CA1AD7 /* MapViewController.swift */; };
 		65AEC6D01F4F99E20059F87E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AEC6CF1F4F99E20059F87E /* AppDelegate.swift */; };
 		65AEC6D21F4F99E20059F87E /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AEC6D11F4F99E20059F87E /* FirstViewController.swift */; };
 		65AEC6D41F4F99E20059F87E /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AEC6D31F4F99E20059F87E /* SecondViewController.swift */; };
@@ -20,6 +23,7 @@
 		65AEC6DC1F4F99E30059F87E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65AEC6DA1F4F99E30059F87E /* LaunchScreen.storyboard */; };
 		65AEC6E71F4F99E30059F87E /* Smart_Drinks___NutritionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AEC6E61F4F99E30059F87E /* Smart_Drinks___NutritionTests.swift */; };
 		65AEC6F21F4F99E30059F87E /* Smart_Drinks___NutritionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AEC6F11F4F99E30059F87E /* Smart_Drinks___NutritionUITests.swift */; };
+		94B1F96CB2EBAB722C78DD8F /* libPods-Smart Drinks & Nutrition.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4A3602B42867700C52C76C9 /* libPods-Smart Drinks & Nutrition.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,11 +44,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		33C89710F7BBB345E32EF7BD /* Pods-Smart Drinks & Nutrition.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Drinks & Nutrition.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Drinks & Nutrition/Pods-Smart Drinks & Nutrition.debug.xcconfig"; sourceTree = "<group>"; };
 		65344D291F5F759800772243 /* Drinks.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Drinks.plist; sourceTree = "<group>"; };
 		653772B31F5FA10200F2B855 /* Drinks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Drinks.json; sourceTree = "<group>"; };
 		653772B51F5FABC400F2B855 /* DrinksDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrinksDetailTableViewController.swift; sourceTree = "<group>"; };
 		6586B4DA1F626A5B00CA1AD7 /* NutritionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NutritionTableViewController.swift; sourceTree = "<group>"; };
 		6586B4DC1F626C0E00CA1AD7 /* NutritionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NutritionTableViewCell.swift; sourceTree = "<group>"; };
+		6586B4DF1F64D58200CA1AD7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		6586B4E11F65F5F500CA1AD7 /* LocationsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsTableViewController.swift; sourceTree = "<group>"; };
+		6586B4E31F65F81500CA1AD7 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		65AEC6CC1F4F99E20059F87E /* Smart Drinks & Nutrition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Smart Drinks & Nutrition.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		65AEC6CF1F4F99E20059F87E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65AEC6D11F4F99E20059F87E /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +67,8 @@
 		65AEC6ED1F4F99E30059F87E /* Smart Drinks & NutritionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Smart Drinks & NutritionUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		65AEC6F11F4F99E30059F87E /* Smart_Drinks___NutritionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Smart_Drinks___NutritionUITests.swift"; sourceTree = "<group>"; };
 		65AEC6F31F4F99E30059F87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E4A3602B42867700C52C76C9 /* libPods-Smart Drinks & Nutrition.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Smart Drinks & Nutrition.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA4C4D541F423D0FFC08D8A5 /* Pods-Smart Drinks & Nutrition.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Drinks & Nutrition.release.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Drinks & Nutrition/Pods-Smart Drinks & Nutrition.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +76,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6586B4E01F64D58200CA1AD7 /* CoreLocation.framework in Frameworks */,
+				94B1F96CB2EBAB722C78DD8F /* libPods-Smart Drinks & Nutrition.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +98,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6586B4DE1F64D58200CA1AD7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6586B4DF1F64D58200CA1AD7 /* CoreLocation.framework */,
+				E4A3602B42867700C52C76C9 /* libPods-Smart Drinks & Nutrition.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		65AEC6C31F4F99E20059F87E = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +114,8 @@
 				65AEC6E51F4F99E30059F87E /* Smart Drinks & NutritionTests */,
 				65AEC6F01F4F99E30059F87E /* Smart Drinks & NutritionUITests */,
 				65AEC6CD1F4F99E20059F87E /* Products */,
+				6586B4DE1F64D58200CA1AD7 /* Frameworks */,
+				8364A7DD7401CA8BFC7FA371 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -114,6 +137,8 @@
 				65AEC6D31F4F99E20059F87E /* SecondViewController.swift */,
 				6586B4DA1F626A5B00CA1AD7 /* NutritionTableViewController.swift */,
 				65AEC6D51F4F99E20059F87E /* Main.storyboard */,
+				6586B4E31F65F81500CA1AD7 /* MapViewController.swift */,
+				6586B4E11F65F5F500CA1AD7 /* LocationsTableViewController.swift */,
 				6586B4DC1F626C0E00CA1AD7 /* NutritionTableViewCell.swift */,
 				653772B51F5FABC400F2B855 /* DrinksDetailTableViewController.swift */,
 				65344D291F5F759800772243 /* Drinks.plist */,
@@ -143,6 +168,15 @@
 			path = "Smart Drinks & NutritionUITests";
 			sourceTree = "<group>";
 		};
+		8364A7DD7401CA8BFC7FA371 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				33C89710F7BBB345E32EF7BD /* Pods-Smart Drinks & Nutrition.debug.xcconfig */,
+				FA4C4D541F423D0FFC08D8A5 /* Pods-Smart Drinks & Nutrition.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -150,9 +184,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 65AEC6F61F4F99E30059F87E /* Build configuration list for PBXNativeTarget "Smart Drinks & Nutrition" */;
 			buildPhases = (
+				FB0FAA367EA9F8E850E65BBA /* [CP] Check Pods Manifest.lock */,
 				65AEC6C81F4F99E20059F87E /* Sources */,
 				65AEC6C91F4F99E20059F87E /* Frameworks */,
 				65AEC6CA1F4F99E20059F87E /* Resources */,
+				4369380CD52D7921B2621141 /* [CP] Embed Pods Frameworks */,
+				643AEBCB1ADC0D2124789F8C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -277,6 +314,62 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4369380CD52D7921B2621141 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Smart Drinks & Nutrition/Pods-Smart Drinks & Nutrition-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		643AEBCB1ADC0D2124789F8C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Smart Drinks & Nutrition/Pods-Smart Drinks & Nutrition-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlacePicker/Frameworks/GooglePlacePicker.framework/Resources/GooglePlacePicker.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Smart Drinks & Nutrition/Pods-Smart Drinks & Nutrition-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FB0FAA367EA9F8E850E65BBA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Smart Drinks & Nutrition-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		65AEC6C81F4F99E20059F87E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -288,6 +381,8 @@
 				65AEC6D01F4F99E20059F87E /* AppDelegate.swift in Sources */,
 				6586B4DD1F626C0E00CA1AD7 /* NutritionTableViewCell.swift in Sources */,
 				65AEC6D21F4F99E20059F87E /* FirstViewController.swift in Sources */,
+				6586B4E21F65F5F600CA1AD7 /* LocationsTableViewController.swift in Sources */,
+				6586B4E41F65F81500CA1AD7 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,6 +534,7 @@
 		};
 		65AEC6F71F4F99E30059F87E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 33C89710F7BBB345E32EF7BD /* Pods-Smart Drinks & Nutrition.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 74HJYZD4EF;
@@ -453,6 +549,7 @@
 		};
 		65AEC6F81F4F99E30059F87E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FA4C4D541F423D0FFC08D8A5 /* Pods-Smart Drinks & Nutrition.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 74HJYZD4EF;
