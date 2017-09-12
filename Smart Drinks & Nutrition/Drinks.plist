@@ -2,100 +2,130 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Smart smoothies</key>
+	<key>smoothies</key>
+	<dict>
+		<key>Smart smoothies</key>
+		<array>
+			<dict>
+				<key>name</key>
+				<string>Smart Fuel</string>
+				<key>description</key>
+				<string>(Banana, Pinaeapple, 2% Milk, Honey, Turbinado and Protein)</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>Smart Meal</string>
+				<key>description</key>
+				<string>(Banana, Orange Juice, 2% Milk, Turbinado, Meal Replacement)</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>Smart Blasst</string>
+				<key>description</key>
+				<string>(Chocolate Protein, Honey, 2% Milk, Turbinado)</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>Smart Fusion</string>
+				<key>description</key>
+				<string>(Pineapple, Strawberry, Antioxidant, 2% Milk, Turbinado)</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>Smart Burner</string>
+				<key>description</key>
+				<string>(Blueberry, Banana, Fat Burner, 2% Milk, Turbinado)</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>Smart Low Carb</string>
+				<key>description</key>
+				<string>(Banana, Strawberry, 2% Milk, Turbinado, Low Carb Protein)</string>
+			</dict>
+		</array>
+		<key>Fruit smoothies</key>
+		<array>
+			<dict>
+				<key>name</key>
+				<string>Banana Vanilla</string>
+				<key>description</key>
+				<string>(Banana, Vanilla, 2% Milk and Turbinado)</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>Strawberry Banana</string>
+				<key>description</key>
+				<string>(Strawberry, Banana, 2% Milk and Turbinado)</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>Mango Peach</string>
+				<key>description</key>
+				<string>(Mango, Peach, 2% Milk and Turbinado)</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>Tropical</string>
+				<key>description</key>
+				<string>(Pineapple, Mango, Banana, Orange, 2% Milk and Turbinado)</string>
+			</dict>
+		</array>
+		<key>Boosters</key>
+		<array>
+			<string>Protein</string>
+			<string>Creatine</string>
+			<string>Multi-Vitamins</string>
+			<string>Fiber</string>
+			<string>Fat burner</string>
+			<string>Immune</string>
+			<string>Sprirulina</string>
+			<string>Ginseng</string>
+			<string>Anti-Oxidant</string>
+			<string>Spinach</string>
+			<string>Kale</string>
+			<string>Ginger</string>
+			<string>Lime</string>
+			<string>Beets</string>
+			<string>Carrots</string>
+		</array>
+		<key>Additional Flavors</key>
+		<array>
+			<string>Peach</string>
+			<string>Mango</string>
+			<string>Banana</string>
+			<string>Strawberry</string>
+			<string>Chocolate</string>
+			<string>Blueberry</string>
+			<string>Pineapple</string>
+			<string>Vanilla</string>
+		</array>
+	</dict>
+	<key>juices</key>
 	<array>
 		<dict>
 			<key>name</key>
-			<string>Smart Fuel</string>
+			<string>Smart Beet Detox 16 oz</string>
 			<key>description</key>
-			<string>(Banana, Pinaeapple, 2% Milk, Honey, Turbinado and Protein)</string>
+			<string>(Beet Root, Carrots, Celery, Cucumber,Ginger Root, Apples)</string>
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>Smart Meal</string>
+			<string>Smart Ginder Ale 16 oz</string>
 			<key>description</key>
-			<string>(Banana, Orange Juice, 2% Milk, Turbinado, Meal Replacement)</string>
+			<string>(Ginger Root, Lime,Celery, Cucumbers, Apples)</string>
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>Smart Blasst</string>
+			<string>Smart Lean Green 16 oz</string>
 			<key>description</key>
-			<string>(Chocolate Protein, Honey, 2% Milk, Turbinado)</string>
+			<string>(Kale, Celery, Cucumber, Apples)</string>
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>Smart Fusion</string>
+			<string>Smart Green Limeade 16 oz</string>
 			<key>description</key>
-			<string>(Pineapple, Strawberry, Antioxidant, 2% Milk, Turbinado)</string>
+			<string>(Lime, Spinach,Kale, Cucumber, Apples)</string>
 		</dict>
-		<dict>
-			<key>name</key>
-			<string>Smart Burner</string>
-			<key>description</key>
-			<string>(Blueberry, Banana, Fat Burner, 2% Milk, Turbinado)</string>
-		</dict>
-		<dict>
-			<key>name</key>
-			<string>Smart Low Carb</string>
-			<key>description</key>
-			<string>(Banana, Strawberry, 2% Milk, Turbinado, Low Carb Protein)</string>
-		</dict>
-	</array>
-	<key>Fruit smoothies</key>
-	<array>
-		<dict>
-			<key>name</key>
-			<string>Banana Vanilla</string>
-			<key>description</key>
-			<string>(Banana, Vanilla, 2% Milk and Turbinado)</string>
-		</dict>
-		<dict>
-			<key>name</key>
-			<string>Strawberry Banana</string>
-			<key>description</key>
-			<string>(Strawberry, Banana, 2% Milk and Turbinado)</string>
-		</dict>
-		<dict>
-			<key>name</key>
-			<string>Mango Peach</string>
-			<key>description</key>
-			<string>(Mango, Peach, 2% Milk and Turbinado)</string>
-		</dict>
-		<dict>
-			<key>name</key>
-			<string>Tropical</string>
-			<key>description</key>
-			<string>(Pineapple, Mango, Banana, Orange, 2% Milk and Turbinado)</string>
-		</dict>
-	</array>
-	<key>Boosters</key>
-	<array>
-		<string>Protein</string>
-		<string>Creatine</string>
-		<string>Multi-Vitamins</string>
-		<string>Fiber</string>
-		<string>Fat burner</string>
-		<string>Immune</string>
-		<string>Sprirulina</string>
-		<string>Ginseng</string>
-		<string>Anti-Oxidant</string>
-		<string>Spinach</string>
-		<string>Kale</string>
-		<string>Ginger</string>
-		<string>Lime</string>
-		<string>Beets</string>
-		<string>Carrots</string>
-	</array>
-	<key>Additional Flavors</key>
-	<array>
-		<string>Peach</string>
-		<string>Mango</string>
-		<string>Banana</string>
-		<string>Strawberry</string>
-		<string>Chocolate</string>
-		<string>Blueberry</string>
-		<string>Pineapple</string>
-		<string>Vanilla</string>
 	</array>
 </dict>
 </plist>

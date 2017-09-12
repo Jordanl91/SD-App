@@ -1,4 +1,5 @@
-{
+{ "smoothies":
+    {
     "Smart Smoothies":[
                        {
                        "name":"SMART FUEL TM",
@@ -70,4 +71,23 @@
                            "PINEAPPLE",
                            "VANILLA"
                            ]
+    },
+    
+    "juices":[
+              {
+              "name":"Smart Beet Detox 16 oz",
+              "description":"(Beet Root, Carrots, Celery, Cucumber,Ginger Root, Apples)"
+              },
+              {
+              "name":"Smart Ginder Ale 16 oz",
+              "description":"(Ginger Root, Lime,Celery, Cucumbers, Apples)"
+              },                       {
+              "name":"Smart Lean Green 16 oz",
+              "description":"(Kale, Celery, Cucumber, Apples)"
+              },                       {
+              "name":"Smart Green Limeade 16 oz",
+              "description":"(Lime, Spinach,Kale, Cucumber, Apples)"
+              }
+    
+    ]
 }
