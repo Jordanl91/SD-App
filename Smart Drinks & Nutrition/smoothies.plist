@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>smoothies</key>
+	<dict>
+		<key>Smart smoothies</key>
+		<array>
+			<dict>
+				<key>description</key>
+				<string>(Banana, cranberry juice, turbinado and vitamin C)</string>
+				<key>name</key>
+				<string>Smart Recovery</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>Smart Fuel</string>
+				<key>description</key>
+				<string>(Banana, pinaeapple, 2% milk, honey, turbinado and protein)</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>Smart Meal</string>
+				<key>description</key>
+				<string>(Banana, orange juice, 2% milk, turbinado and meal replacement)</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>Smart Blasst</string>
+				<key>description</key>
+				<string>(Chocolate protein, honey, 2% milk and turbinado)</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>Smart Fusion</string>
+				<key>description</key>
+				<string>(Pineapple, strawberry, antioxidant, 2% milk and turbinado)</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>Smart Burner</string>
+				<key>description</key>
+				<string>(Blueberry, banana, fat burner, 2% milk and turbinado)</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>Smart Low Carb</string>
+				<key>description</key>
+				<string>(Banana, strawberry, 2% milk, turbinado and low carb protein)</string>
+			</dict>
+		</array>
+		<key>Fruit smoothies</key>
+		<array>
+			<dict>
+				<key>name</key>
+				<string>Banana Vanilla</string>
+				<key>description</key>
+				<string>(Banana, vanilla, 2% milk and turbinado)</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>Strawberry Banana</string>
+				<key>description</key>
+				<string>(Strawberry, banana, 2% milk and turbinado)</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>Mango Peach</string>
+				<key>description</key>
+				<string>(Mango, peach, 2% milk and turbinado)</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>Tropical</string>
+				<key>description</key>
+				<string>(Pineapple, mango, banana, orange, 2% milk and turbinado)</string>
+			</dict>
+			<dict>
+				<key>description</key>
+				<string>(Pinapple, banana, papaya, orange, 2% milk and turbinado)</string>
+				<key>name</key>
+				<string>Hawaiian</string>
+			</dict>
+		</array>
+	</dict>
+</dict>
+</plist>
