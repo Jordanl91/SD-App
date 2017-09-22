@@ -28,7 +28,7 @@ class DrinksViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
         
         //smoothie processing
-        
+        menuSegmentedControl.addTarget(self, action: #selector(didChangeSegment), for: .touchUpInside)
         let smoothiesPathStr = Bundle.main.path(forResource: "smoothies", ofType: "plist")
         let data :NSData? = NSData(contentsOfFile: smoothiesPathStr!)
         smoothiesDatasourceDictionary = try! PropertyListSerialization.propertyList(from: data! as Data, options: [], format: nil) as! [String:Any]
@@ -106,7 +106,9 @@ class DrinksViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
-    
+    func didChangeSegment(){
+        drinksTableView.reloadData()
+    }
     /*
     // MARK: - Navigation
 
