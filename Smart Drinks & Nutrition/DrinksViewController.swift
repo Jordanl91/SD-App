@@ -81,7 +81,19 @@ class DrinksViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        if menuSegmentedControl.selectedSegmentIndex == 0 {
+            return 1
+        }else{
+            return 3
+        }
+    }
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if menuSegmentedControl.selectedSegmentIndex == 0{
+            return nil
+        }else{
+            return coffeeCategories[section]
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -90,8 +102,22 @@ class DrinksViewController: UIViewController, UITableViewDelegate, UITableViewDa
             cell?.drinkTitle.text = totalSmoothies[indexPath.row]["name"] as? String
             cell?.drinkDescription.text = totalSmoothies[indexPath.row]["description"] as? String
         }else{
-            cell?.drinkTitle.text = totalCoffees[indexPath.row]["name"] as? String
-            cell?.drinkDescription.text = totalCoffees[indexPath.row]["description"] as? String
+            if indexPath.section == 0 {
+                if indexPath.row < 4 {
+                cell?.drinkTitle.text = totalCoffees[indexPath.row]["name"] as? String
+                cell?.drinkDescription.text = totalCoffees[indexPath.row]["description"] as? String
+                }
+            }else if indexPath.section == 1{
+                if indexPath.row < 13 {
+                cell?.drinkTitle.text = totalCoffees[indexPath.row]["name"] as? String
+                cell?.drinkDescription.text = totalCoffees[indexPath.row]["description"] as? String
+                }
+            }else{
+                if indexPath.row < 16 {
+                    cell?.drinkTitle.text = totalCoffees[indexPath.row]["name"] as? String
+                    cell?.drinkDescription.text = totalCoffees[indexPath.row]["description"] as? String
+                }
+            }
         }
         return cell!
     }
@@ -100,7 +126,13 @@ class DrinksViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if menuSegmentedControl.selectedSegmentIndex == 0{
             return totalSmoothies.count
         }else{
-            return totalCoffees.count
+            if section == 0{
+                return 4
+            }else if section == 1{
+                return 9
+            }else{
+                return 3
+            }
         }
     }
     @IBAction func segmentChanged(_ sender: Any) {
