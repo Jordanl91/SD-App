@@ -12,6 +12,7 @@
 		65344D2A1F5F759800772243 /* Drinks.plist in Resources */ = {isa = PBXBuildFile; fileRef = 65344D291F5F759800772243 /* Drinks.plist */; };
 		653772B41F5FA10200F2B855 /* Drinks.json in Resources */ = {isa = PBXBuildFile; fileRef = 653772B31F5FA10200F2B855 /* Drinks.json */; };
 		653772B61F5FABC400F2B855 /* DrinksDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653772B51F5FABC400F2B855 /* DrinksDetailTableViewController.swift */; };
+		653A39E71F78A43E00536C9F /* SDNDataConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653A39E61F78A43E00536C9F /* SDNDataConnector.swift */; };
 		6586B4DB1F626A5B00CA1AD7 /* NutritionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6586B4DA1F626A5B00CA1AD7 /* NutritionTableViewController.swift */; };
 		6586B4DD1F626C0E00CA1AD7 /* NutritionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6586B4DC1F626C0E00CA1AD7 /* NutritionTableViewCell.swift */; };
 		6586B4E01F64D58200CA1AD7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6586B4DF1F64D58200CA1AD7 /* CoreLocation.framework */; };
@@ -54,6 +55,7 @@
 		65344D291F5F759800772243 /* Drinks.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Drinks.plist; sourceTree = "<group>"; };
 		653772B31F5FA10200F2B855 /* Drinks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Drinks.json; sourceTree = "<group>"; };
 		653772B51F5FABC400F2B855 /* DrinksDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrinksDetailTableViewController.swift; sourceTree = "<group>"; };
+		653A39E61F78A43E00536C9F /* SDNDataConnector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDNDataConnector.swift; sourceTree = "<group>"; };
 		6586B4DA1F626A5B00CA1AD7 /* NutritionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NutritionTableViewController.swift; sourceTree = "<group>"; };
 		6586B4DC1F626C0E00CA1AD7 /* NutritionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NutritionTableViewCell.swift; sourceTree = "<group>"; };
 		6586B4DF1F64D58200CA1AD7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -145,6 +147,7 @@
 				65AEC6D31F4F99E20059F87E /* SecondViewController.swift */,
 				6586B4DA1F626A5B00CA1AD7 /* NutritionTableViewController.swift */,
 				65AEC6D51F4F99E20059F87E /* Main.storyboard */,
+				653A39E61F78A43E00536C9F /* SDNDataConnector.swift */,
 				650E29F71F7225A3008A6624 /* DrinksViewController.swift */,
 				650E29F91F723744008A6624 /* DrinksTableViewCell.swift */,
 				6586B4E31F65F81500CA1AD7 /* MapViewController.swift */,
@@ -393,6 +396,7 @@
 				6586B4DB1F626A5B00CA1AD7 /* NutritionTableViewController.swift in Sources */,
 				653772B61F5FABC400F2B855 /* DrinksDetailTableViewController.swift in Sources */,
 				650E29F81F7225A3008A6624 /* DrinksViewController.swift in Sources */,
+				653A39E71F78A43E00536C9F /* SDNDataConnector.swift in Sources */,
 				65AEC6D01F4F99E20059F87E /* AppDelegate.swift in Sources */,
 				6586B4DD1F626C0E00CA1AD7 /* NutritionTableViewCell.swift in Sources */,
 				650E29FA1F723744008A6624 /* DrinksTableViewCell.swift in Sources */,
