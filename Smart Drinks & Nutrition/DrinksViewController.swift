@@ -28,7 +28,7 @@ class DrinksViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
         
         //smoothie processing
-        menuSegmentedControl.addTarget(self, action: #selector(didChangeSegment), for: .touchUpInside)
+//        menuSegmentedControl.addTarget(self, action: #selector(didChangeSegment), for: .touchUpInside)
         let smoothiesPathStr = Bundle.main.path(forResource: "smoothies", ofType: "plist")
         let data :NSData? = NSData(contentsOfFile: smoothiesPathStr!)
         smoothiesDatasourceDictionary = try! PropertyListSerialization.propertyList(from: data! as Data, options: [], format: nil) as! [String:Any]
@@ -89,11 +89,9 @@ class DrinksViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if menuSegmentedControl.selectedSegmentIndex == 0 {
             cell?.drinkTitle.text = totalSmoothies[indexPath.row]["name"] as? String
             cell?.drinkDescription.text = totalSmoothies[indexPath.row]["description"] as? String
-        
         }else{
             cell?.drinkTitle.text = totalCoffees[indexPath.row]["name"] as? String
             cell?.drinkDescription.text = totalCoffees[indexPath.row]["description"] as? String
-            
         }
         return cell!
     }
@@ -105,10 +103,17 @@ class DrinksViewController: UIViewController, UITableViewDelegate, UITableViewDa
             return totalCoffees.count
         }
     }
-    
-    func didChangeSegment(){
-        drinksTableView.reloadData()
+    @IBAction func segmentChanged(_ sender: Any) {
+        DispatchQueue.main.async {
+            self.drinksTableView.reloadData()
+        }
     }
+    
+//    func didChangeSegment(){
+//        DispatchQueue.main.async {
+//            self.drinksTableView.reloadData()
+//        }
+//    }
     /*
     // MARK: - Navigation
 
