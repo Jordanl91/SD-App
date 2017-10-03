@@ -82,9 +82,38 @@ class DrinksViewController: UIViewController, UITableViewDelegate, UITableViewDa
                            self.idsArray.append(ids)
                         }
                     }
+                    // now you got the ids make API calls for each id to get their locations
+                    if self.idsArray.count > 0 {
+                        SDNGlobal.sdnInstance.coordinates.removeAll()
+                        for id in self.idsArray {
+                            
+                            // loop for each location
+                        SDNGlobal.sdnInstance.getLocation(withTracker: id , completionHandler: {(success,error)  -> Void in
+                            if error == nil{
+                                
+                                // clearing all the existing array values... make sure you get the same count for both the latitude and longitudes
+                        
+
+                                print(SDNGlobal.sdnInstance.trackingJson)
+                                if let gpsTracker = SDNGlobal.sdnInstance.trackingJson["states"] as? [String:Any] {
+                                    if let deviceId = gpsTracker["\(id)"] as? [String:Any] {
+                                       if let gps = deviceId["gps"] as? [String:Any]{
+                                           if let location = gps["location"] as? [String:Any]{
+                                                SDNGlobal.sdnInstance.coordinates.append(location)
+                                                print(SDNGlobal.sdnInstance.coordinates)
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        })
+                        }
+                    }else{
+                        //show alert that there are no trucks or no data returned. This might happen when there is no network connection or server issues.
+                    }
                 }
                 
-                // now you got the ids make API calls for each id to get their locations
+                
             }
         })
 

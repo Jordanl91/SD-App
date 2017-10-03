@@ -17,6 +17,9 @@ class SDNGlobal: NSObject {
     var devicesJson = [String:Any]()
     var trackingJson = [String:Any]()
     var apiCalls = [String:String]()
+    
+    var coordinates = [[String:Any]]()
+    
     private override init() {
         super.init()
     }
