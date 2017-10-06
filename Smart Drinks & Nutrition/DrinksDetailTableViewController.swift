@@ -9,9 +9,9 @@
 import UIKit
 
 class DrinksDetailTableViewController: UITableViewController {
-    var drinksArrayOfDictionary = [[String:Any]]()
-    var drinkNames = [String]()
-    var drinkRecipe = [String]()
+    @objc var drinksArrayOfDictionary = [[String:Any]]()
+    @objc var drinkNames = [String]()
+    @objc var drinkRecipe = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +19,7 @@ class DrinksDetailTableViewController: UITableViewController {
 //        self.navigationController?.navigationBar.barTintColor = UIColor.init(red: 255/255, green: 70/255, blue: 50/255, alpha: 1)
 //        tableView.backgroundColor = UIColor.init(red: 255/255, green: 70/255, blue: 50/255, alpha: 1)
         //self.navigationController?.navigationBar.tintColor = UIColor.white
-        self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        self.navigationController!.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         self.navigationController?.navigationBar.isTranslucent = false
         tableView.tableFooterView = UIView()
         

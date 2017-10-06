@@ -10,9 +10,10 @@ import UIKit
 import GoogleMaps
 
 class MapViewController: UIViewController {
-    var latitude = 0.0
-    var longitude = 0.0
-    var address = String()
+    @objc var latitude = 0.0
+    @objc var longitude = 0.0
+    @objc var truckLocation = [String:Any]()
+    @objc var address = String()
     override func viewDidLoad() {
         super.viewDidLoad()
         print("\(latitude)...... \(longitude)")
@@ -26,13 +27,15 @@ class MapViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         print(" In did appear \(latitude)...... \(longitude)")
-        let camera = GMSCameraPosition.camera(withLatitude: latitude, longitude: longitude, zoom: 12.0)
+        let camera = GMSCameraPosition.camera(withLatitude: (truckLocation["lat"] as? Double)!, longitude: (truckLocation["lng"] as? Double)!, zoom: 12.0)
         let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
         view = mapView
-        
+        let markerImage = UIImage(named: "TruckMarker")!.withRenderingMode(.alwaysTemplate)
+        let markerView = UIImageView(image: markerImage)
         let marker = GMSMarker()
-        marker.position = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-        marker.title = "Starbucks"
+        marker.position = CLLocationCoordinate2D(latitude: (truckLocation["lat"] as? Double)!, longitude: (truckLocation["lng"] as? Double)!)
+        marker.iconView = markerView
+        marker.title = "Truck A"
         marker.snippet = address
         marker.map = mapView
         

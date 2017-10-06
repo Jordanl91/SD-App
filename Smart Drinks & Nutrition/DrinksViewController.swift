@@ -10,16 +10,16 @@ import UIKit
 
 class DrinksViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
-    let smoothiesCategories = ["Smart smoothies","Fruit smoothies"]
-    let coffeeCategories = ["BLENDED (FRAPPECCIANO)","HOT DRINKS", "ICED DRINKS"]
-    var smoothiesDatasourceDictionary = [String:Any]()
-    var coffeeDatasourceDictionary = [String:Any]()
-    var drinksArrayOfDictionary = [[String:Any]]()
-    var smartSmoothiesArray = [String:Any]()
-    var juicesArray = [[String:Any]]()
-    var totalSmoothies = [[String:Any]]()
-    var totalCoffees = [[String:Any]]()
-    var idsArray = [Int]()
+    @objc let smoothiesCategories = ["Smart smoothies","Fruit smoothies"]
+    @objc let coffeeCategories = ["BLENDED (FRAPPECCIANO)","HOT DRINKS", "ICED DRINKS"]
+    @objc var smoothiesDatasourceDictionary = [String:Any]()
+    @objc var coffeeDatasourceDictionary = [String:Any]()
+    @objc var drinksArrayOfDictionary = [[String:Any]]()
+    @objc var smartSmoothiesArray = [String:Any]()
+    @objc var juicesArray = [[String:Any]]()
+    @objc var totalSmoothies = [[String:Any]]()
+    @objc var totalCoffees = [[String:Any]]()
+    @objc var idsArray = [Int]()
     
     @IBOutlet weak var menuSegmentedControl: UISegmentedControl!
 

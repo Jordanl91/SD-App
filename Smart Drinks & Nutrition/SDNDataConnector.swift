@@ -10,15 +10,15 @@ import Foundation
 
 class SDNGlobal: NSObject {
     
-    static let sdnInstance = SDNGlobal()
+    @objc static let sdnInstance = SDNGlobal()
     private let urlHash = "9b7ad8963ea98930e09855a0759fec23"
     private let baseURL = "https://api.navixy.com"
-    var deviceId = 0
-    var devicesJson = [String:Any]()
-    var trackingJson = [String:Any]()
-    var apiCalls = [String:String]()
+    @objc var deviceId = 0
+    @objc var devicesJson = [String:Any]()
+    @objc var trackingJson = [String:Any]()
+    @objc var apiCalls = [String:String]()
     
-    var coordinates = [[String:Any]]()
+    @objc var coordinates = [[String:Any]]()
     
     private override init() {
         super.init()
@@ -29,15 +29,15 @@ class SDNGlobal: NSObject {
     //https://api.navixy.com/v2/tracker/get_states/?trackers=[228592]&hash=f4bb7c3f4c730540b4d90b2cf2499ed9
     
     
-    func populateURLs(){
+    @objc func populateURLs(){
         self.apiCalls = ["DeviceId": "/v2/tracker/list/?hash=",
             "Tracking": "/v2/tracker/get_states/?"]
     }
     
-    func updateDeviceIdURL(withURLHash:String){
+    @objc func updateDeviceIdURL(withURLHash:String){
         apiCalls["DeviceId"] = "/v2/tracker/list/?hash=\(withURLHash)"
     }
-    func updateTrackingURL(withTracker:Int,withURLHash:String){
+    @objc func updateTrackingURL(withTracker:Int,withURLHash:String){
         apiCalls["Tracking"] = "/v2/tracker/get_states/?trackers=[\(withTracker)]&hash=\(withURLHash)"
     }
     

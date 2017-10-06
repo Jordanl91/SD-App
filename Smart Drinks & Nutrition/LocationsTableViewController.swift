@@ -12,15 +12,17 @@ import GooglePlacePicker
 
 class LocationsTableViewController: UITableViewController, CLLocationManagerDelegate {
     
-    var placesClient: GMSPlacesClient!
-    let locationManager = CLLocationManager()
-    var lats = [Double()]
-    var longs = [Double()]
-    var addresses = [String]()
-    var names = [String]()
-    var lat = Double()
-    var long = Double()
-    var address = String()
+    @objc var placesClient: GMSPlacesClient!
+    @objc let locationManager = CLLocationManager()
+    @objc let truckLocations = [[String:Any]]()
+    @objc var truckLocationToPass = [String:Any]()
+//    var lats = [Double()]
+//    var longs = [Double()]
+//    var addresses = [String]()
+//    var names = [String]()
+//    var lat = Double()
+//    var long = Double()
+//    var address = String()
 
 
     override func viewDidLoad() {
@@ -78,7 +80,7 @@ class LocationsTableViewController: UITableViewController, CLLocationManagerDele
                     if let place = place {
                         print(place.name)
                         print(place.formattedAddress?.components(separatedBy: ", ").joined(separator: "\n") as Any)
-                        self.getStarbucksNearMe(location: place.coordinate)
+//                        self.getStarbucksNearMe(location: place.coordinate)
                         //populate list of starbucks location in a table view
                         
                         
@@ -88,55 +90,55 @@ class LocationsTableViewController: UITableViewController, CLLocationManagerDele
         }
     }
     
-    func getStarbucksNearMe(location:CLLocationCoordinate2D){
-        let url = URL(string:"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(location.latitude),\(location.longitude)&radius=5000&keyword=starbucks&key=AIzaSyBIm7a1JO2BCRpiWrNJ7LpbwSrB6JTQos0")
-        let request = URLRequest(url:url!)
-        print(url!)
-        // let config = URLSession(configuration: .default)
-        let session = URLSession.shared
-        let task = session.dataTask(with: request, completionHandler: {(data, response, error) in
-            do{
-                
-                
-                guard let jsonVar = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? [String:Any] else {
-                    return
-                }
-                print(jsonVar)
-                guard let resultArray = jsonVar["results"] as? [[String:Any]] else { return }
-                for item in resultArray{
-                    guard let geometry = item["geometry"] as? [String:Any] else {return}
-                    guard let name = item["name"] as? String else {return}
-                    guard let vicinity = item["vicinity"] as? String else {return}
-                    guard let location = geometry["location"] as? [String:Any] else{return}
-                    guard let latsLocal = location["lat"] as? Double else {return}
-                    guard let longLocal = location["lng"] as? Double else {return}
-                    //append coordinates
-                    self.lats.append(latsLocal)
-                    print(latsLocal,longLocal)
-                    self.longs.append(longLocal)
-                    //append address and name
-                    self.addresses.append(vicinity)
-                    self.names.append(name)
-                    
-                }
-                DispatchQueue.main.async {
-                    //reload table view
-                    self.tableView.reloadData()
-                }
-                print("Response:\(String(describing: response))")
-                
-            }
-            catch let e as NSError{
-                print("Error: \(e.localizedDescription)")
-                
-            }
-            
-        })
-        
-        
-        task.resume()
-        
-    }
+//    func getStarbucksNearMe(location:CLLocationCoordinate2D){
+//        let url = URL(string:"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(location.latitude),\(location.longitude)&radius=5000&keyword=starbucks&key=AIzaSyBIm7a1JO2BCRpiWrNJ7LpbwSrB6JTQos0")
+//        let request = URLRequest(url:url!)
+//        print(url!)
+//        // let config = URLSession(configuration: .default)
+//        let session = URLSession.shared
+//        let task = session.dataTask(with: request, completionHandler: {(data, response, error) in
+//            do{
+//
+//
+//                guard let jsonVar = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? [String:Any] else {
+//                    return
+//                }
+//                print(jsonVar)
+//                guard let resultArray = jsonVar["results"] as? [[String:Any]] else { return }
+//                for item in resultArray{
+//                    guard let geometry = item["geometry"] as? [String:Any] else {return}
+//                    guard let name = item["name"] as? String else {return}
+//                    guard let vicinity = item["vicinity"] as? String else {return}
+//                    guard let location = geometry["location"] as? [String:Any] else{return}
+//                    guard let latsLocal = location["lat"] as? Double else {return}
+//                    guard let longLocal = location["lng"] as? Double else {return}
+//                    //append coordinates
+//                    self.lats.append(latsLocal)
+//                    print(latsLocal,longLocal)
+//                    self.longs.append(longLocal)
+//                    //append address and name
+//                    self.addresses.append(vicinity)
+//                    self.names.append(name)
+//
+//                }
+//                DispatchQueue.main.async {
+//                    //reload table view
+//                    self.tableView.reloadData()
+//                }
+//                print("Response:\(String(describing: response))")
+//
+//            }
+//            catch let e as NSError{
+//                print("Error: \(e.localizedDescription)")
+//
+//            }
+//
+//        })
+//
+//
+//        task.resume()
+//
+//    }
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         locationManager.stopUpdatingLocation()
@@ -158,21 +160,21 @@ class LocationsTableViewController: UITableViewController, CLLocationManagerDele
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return names.count
+        return SDNGlobal.sdnInstance.coordinates.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let tableCell = tableView.dequeueReusableCell(withIdentifier: "LOCATION_CELL")
-        tableCell?.textLabel?.text = names[indexPath.row]
-        tableCell?.detailTextLabel?.text = addresses[indexPath.row]
+        tableCell?.textLabel?.text = "Truck \(indexPath.row + 1)"
+        tableCell?.detailTextLabel?.text = "\(SDNGlobal.sdnInstance.coordinates[indexPath.row]["lat"]!,SDNGlobal.sdnInstance.coordinates[indexPath.row]["lng"]! )"
         return tableCell!
-        
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        lat = lats[indexPath.row+1]
-        long = longs[indexPath.row+1]
-        address = addresses[indexPath.row]
+//        lat = lats[indexPath.row+1]
+//        long = longs[indexPath.row+1]
+//        address = addresses[indexPath.row]
+        truckLocationToPass = SDNGlobal.sdnInstance.coordinates[indexPath.row]
         performSegue(withIdentifier: "toMap", sender: self)
     }
 
@@ -220,9 +222,10 @@ class LocationsTableViewController: UITableViewController, CLLocationManagerDele
         
         if segue.identifier == "toMap"{
             let destination = segue.destination as? MapViewController
-            destination?.latitude = self.lat
-            destination?.longitude = self.long
-            destination?.address = self.address
+//            destination?.latitude = self.lat
+            destination?.truckLocation = truckLocationToPass
+//            destination?.longitude = self.long
+//            destination?.address = self.address
         }
     }
 

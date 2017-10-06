@@ -9,12 +9,12 @@
 import UIKit
 
 class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    let drinksCategories = ["Smart smoothies","Fruit smoothies", "Boosters", "Additional Flavors"]
-    var datasourceDictionary = [String:Any]()
-    var drinksArrayOfDictionary = [[String:Any]]()
-    var drinksArray = [String]()
-    var smoothiesArray = [String:Any]()
-    var juicesArray = [[String:Any]]()
+    @objc let drinksCategories = ["Smart smoothies","Fruit smoothies", "Boosters", "Additional Flavors"]
+    @objc var datasourceDictionary = [String:Any]()
+    @objc var drinksArrayOfDictionary = [[String:Any]]()
+    @objc var drinksArray = [String]()
+    @objc var smoothiesArray = [String:Any]()
+    @objc var juicesArray = [[String:Any]]()
     
     @IBOutlet weak var drinksTableView: UITableView!
     override func viewDidLoad() {
@@ -22,7 +22,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
 //        self.navigationController?.navigationBar.barTintColor = UIColor.init(red: 100/255, green: 80/255, blue: 200/255, alpha: 1)
         //drinksTableView.backgroundColor = UIColor.init(red: 100/255, green: 80/255, blue: 200/255, alpha: 1)
         //self.navigationController?.navigationBar.tintColor = UIColor.white
-        self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        self.navigationController!.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         self.navigationController?.navigationBar.isTranslucent = false
         drinksTableView.tableFooterView = UIView()
         let pathStr = Bundle.main.path(forResource: "Drinks", ofType: "plist")
