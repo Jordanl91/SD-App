@@ -18,6 +18,8 @@
 		6586B4E01F64D58200CA1AD7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6586B4DF1F64D58200CA1AD7 /* CoreLocation.framework */; };
 		6586B4E21F65F5F600CA1AD7 /* LocationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6586B4E11F65F5F500CA1AD7 /* LocationsTableViewController.swift */; };
 		6586B4E41F65F81500CA1AD7 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6586B4E31F65F81500CA1AD7 /* MapViewController.swift */; };
+		65A3ECDD1F8BD6E600334BCB /* CouponsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A3ECDC1F8BD6E600334BCB /* CouponsTableViewController.swift */; };
+		65A3ECDF1F8BDA7100334BCB /* Coupons.plist in Resources */ = {isa = PBXBuildFile; fileRef = 65A3ECDE1F8BDA7100334BCB /* Coupons.plist */; };
 		65AEC6D01F4F99E20059F87E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AEC6CF1F4F99E20059F87E /* AppDelegate.swift */; };
 		65AEC6D21F4F99E20059F87E /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AEC6D11F4F99E20059F87E /* FirstViewController.swift */; };
 		65AEC6D41F4F99E20059F87E /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AEC6D31F4F99E20059F87E /* SecondViewController.swift */; };
@@ -61,6 +63,8 @@
 		6586B4DF1F64D58200CA1AD7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		6586B4E11F65F5F500CA1AD7 /* LocationsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsTableViewController.swift; sourceTree = "<group>"; };
 		6586B4E31F65F81500CA1AD7 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		65A3ECDC1F8BD6E600334BCB /* CouponsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponsTableViewController.swift; sourceTree = "<group>"; };
+		65A3ECDE1F8BDA7100334BCB /* Coupons.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Coupons.plist; sourceTree = "<group>"; };
 		65AEC6CC1F4F99E20059F87E /* Smart Drinks & Nutrition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Smart Drinks & Nutrition.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		65AEC6CF1F4F99E20059F87E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65AEC6D11F4F99E20059F87E /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -147,6 +151,8 @@
 				65AEC6D31F4F99E20059F87E /* SecondViewController.swift */,
 				6586B4DA1F626A5B00CA1AD7 /* NutritionTableViewController.swift */,
 				65AEC6D51F4F99E20059F87E /* Main.storyboard */,
+				65A3ECDC1F8BD6E600334BCB /* CouponsTableViewController.swift */,
+				65A3ECDE1F8BDA7100334BCB /* Coupons.plist */,
 				653A39E61F78A43E00536C9F /* SDNDataConnector.swift */,
 				650E29F71F7225A3008A6624 /* DrinksViewController.swift */,
 				650E29F91F723744008A6624 /* DrinksTableViewCell.swift */,
@@ -314,6 +320,7 @@
 				653772B41F5FA10200F2B855 /* Drinks.json in Resources */,
 				65344D2A1F5F759800772243 /* Drinks.plist in Resources */,
 				65AEC6D91F4F99E30059F87E /* Assets.xcassets in Resources */,
+				65A3ECDF1F8BDA7100334BCB /* Coupons.plist in Resources */,
 				65AEC6D71F4F99E20059F87E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -401,6 +408,7 @@
 				650E29F81F7225A3008A6624 /* DrinksViewController.swift in Sources */,
 				653A39E71F78A43E00536C9F /* SDNDataConnector.swift in Sources */,
 				65AEC6D01F4F99E20059F87E /* AppDelegate.swift in Sources */,
+				65A3ECDD1F8BD6E600334BCB /* CouponsTableViewController.swift in Sources */,
 				6586B4DD1F626C0E00CA1AD7 /* NutritionTableViewCell.swift in Sources */,
 				650E29FA1F723744008A6624 /* DrinksTableViewCell.swift in Sources */,
 				65AEC6D21F4F99E20059F87E /* FirstViewController.swift in Sources */,

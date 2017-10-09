@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>title</key>
+		<string>Whey day!!</string>
+		<key>subtitle</key>
+		<string>straw berry whey protein sale</string>
+		<key>description</key>
+		<string></string>
+		<key>dateValidthru</key>
+		<string>may 2nd</string>
+	</dict>
+    <dict>
+        <key>subtitle</key>
+        <string>Buy one get one 50% OFF orange flavour</string>
+        <key>description</key>
+        <string></string>
+        <key>dateValidthru</key>
+        <string>may 2nd</string>
+        <key>title</key>
+        <string>L-Carnitine Blow Out</string>
+    </dict>
+    <dict>
+        <key>subtitle</key>
+        <string>4 for 80</string>
+        <key>description</key>
+        <string></string>
+        <key>dateValidthru</key>
+        <string>may 2nd</string>
+        <key>title</key>
+        <string>Extreme edge extreme savings</string>
+    </dict>
+    <dict>
+        <key>subtitle</key>
+        <string>Buy one get one 50% OFF orange flavour</string>
+        <key>description</key>
+        <string></string>
+        <key>dateValidthru</key>
+        <string>may 2nd</string>
+        <key>title</key>
+        <string>CLA to LOSE</string>
+    </dict>
+</array>
+</plist>
