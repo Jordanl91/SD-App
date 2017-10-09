@@ -16,7 +16,7 @@
                 <navigationController id="mgL-bm-yFy" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Drinks" image="Drinks" selectedImage="Drinks" id="eS8-uF-d4t"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="drv-ib-N90">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -136,7 +136,7 @@
             </objects>
             <point key="canvasLocation" x="1292" y="-1650"/>
         </scene>
-        <!--Item-->
+        <!--Drinks-->
         <scene sceneID="5gq-8b-kJS">
             <objects>
                 <viewController id="3Kj-lh-CHT" customClass="DrinksViewController" customModule="Smart_Drinks___Nutrition" customModuleProvider="target" sceneMemberID="viewController">
@@ -149,17 +149,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="7VE-h3-roy">
-                                <rect key="frame" x="16" y="72" width="343" height="29"/>
+                                <rect key="frame" x="16" y="76" width="343" height="29"/>
                                 <segments>
                                     <segment title="SMOOTHIES"/>
                                     <segment title="GOURMET COFFEE"/>
                                 </segments>
+                                <color key="tintColor" red="0.062745098039215685" green="0.29411764705882354" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="segmentChanged:" destination="3Kj-lh-CHT" eventType="valueChanged" id="6Bj-15-tqe"/>
                                 </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="61" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="a1K-iv-1Ye">
-                                <rect key="frame" x="0.0" y="108" width="375" height="510"/>
+                                <rect key="frame" x="0.0" y="112" width="375" height="506"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DRINKS_CELL" rowHeight="60" id="k1J-Hk-Hca" customClass="DrinksTableViewCell" customModule="Smart_Drinks___Nutrition" customModuleProvider="target">
@@ -217,7 +218,7 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" image="Drinks" selectedImage="Drinks" id="QN6-em-bRW"/>
-                    <navigationItem key="navigationItem" id="TcD-A9-zYJ"/>
+                    <navigationItem key="navigationItem" title="Drinks" id="TcD-A9-zYJ"/>
                     <connections>
                         <outlet property="drinksTableView" destination="a1K-iv-1Ye" id="ElN-cs-cnp"/>
                         <outlet property="menuSegmentedControl" destination="7VE-h3-roy" id="fdp-Cp-3QV"/>
@@ -227,7 +228,7 @@
             </objects>
             <point key="canvasLocation" x="2616.8000000000002" y="-1002.5487256371815"/>
         </scene>
-        <!--Nutritions-->
+        <!--Request Truck-->
         <scene sceneID="WfO-bZ-Im1">
             <objects>
                 <tableViewController id="IM6-TZ-WwZ" customClass="NutritionTableViewController" customModule="Smart_Drinks___Nutrition" customModuleProvider="target" sceneMemberID="viewController">
@@ -267,7 +268,7 @@
                             <outlet property="delegate" destination="IM6-TZ-WwZ" id="nF6-SQ-mqa"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Nutritions" id="bYF-V0-jEO"/>
+                    <navigationItem key="navigationItem" title="Request Truck" id="bYF-V0-jEO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X1Q-Tf-cDE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -388,14 +389,14 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cnf-TC-Wcs">
-                                            <rect key="frame" x="16" y="5" width="34" height="20"/>
+                                            <rect key="frame" x="16" y="5" width="33.5" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fge-Z4-vbi">
-                                            <rect key="frame" x="16" y="25" width="44" height="15"/>
+                                            <rect key="frame" x="16" y="25.5" width="44" height="14.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
@@ -451,7 +452,7 @@
                 <navigationController id="wb1-6L-6La" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Rewards" image="Rewards" selectedImage="Rewards" id="Ev6-Su-3ko"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="S9m-MP-XBM">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -487,6 +488,12 @@
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" red="0.062745098040000002" green="0.29411764709999999" blue="0.56862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="keyPath">
+                                <color key="value" red="0.062745098039215685" green="0.29411764705882354" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
                         <segue destination="LcT-Ge-GBX" kind="relationship" relationship="viewControllers" id="RX8-7Q-XZa"/>

@@ -21,8 +21,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         (_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         GMSPlacesClient.provideAPIKey("AIzaSyDsAGoOY7BVrW5IXhFOqBHphWnwpQ4Q5Q0")
         GMSServices.provideAPIKey("AIzaSyDsAGoOY7BVrW5IXhFOqBHphWnwpQ4Q5Q0")
-        UINavigationBar.appearance().tintColor = UIColor.white
+        
+        UINavigationBar.appearance().isOpaque = true
         UINavigationBar.appearance().barTintColor = UIColor.init(red: 16/255, green: 76/255, blue: 145/255, alpha: 1)
+        UINavigationBar.appearance().tintColor = UIColor.white
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.white]
+
         // Override point for customization after application launch.
         return true
     }
