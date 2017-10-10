@@ -11,7 +11,7 @@ import UIKit
 class DrinksViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     @objc let smoothiesCategories = ["Smart smoothies","Fruit smoothies"]
-    @objc let coffeeCategories = ["BLENDED (FRAPPECCIANO)","HOT DRINKS", "ICED DRINKS"]
+    @objc let coffeeCategories = ["HOT DRINKS", "ICED DRINKS", "BLENDED (FRAPPÉCCIANO)"]
     @objc var smoothiesDatasourceDictionary = [String:Any]()
     @objc var coffeeDatasourceDictionary = [String:Any]()
     @objc var drinksArrayOfDictionary = [[String:Any]]()
@@ -19,6 +19,9 @@ class DrinksViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @objc var juicesArray = [[String:Any]]()
     @objc var totalSmoothies = [[String:Any]]()
     @objc var totalCoffees = [[String:Any]]()
+    var hotCoffees = [[String:Any]]()
+    var icedCoffees = [[String:Any]]()
+    var blendedCoffees = [[String:Any]]()
     @objc var idsArray = [Int]()
     
     @IBOutlet weak var menuSegmentedControl: UISegmentedControl!
@@ -53,22 +56,22 @@ class DrinksViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let coffeeData :NSData? = NSData(contentsOfFile: coffeePathStr!)
         coffeeDatasourceDictionary = try! PropertyListSerialization.propertyList(from: coffeeData! as Data, options: [], format: nil) as! [String:Any]
         if let coffees = coffeeDatasourceDictionary["coffee"] as? [String:Any]{
-            if let blended = coffees[coffeeCategories[0]] as? [[String:Any]]{
-                for coffee in blended{
-                    totalCoffees.append(coffee)
-                }
-            }
-            if let hot = coffees[coffeeCategories[1]] as? [[String:Any]]{
+            if let hot = coffees[coffeeCategories[0]] as? [[String:Any]]{
                 for coffee in hot{
-                    totalCoffees.append(coffee)
+                    hotCoffees.append(coffee)
                 }
             }
-            if let iced = coffees[coffeeCategories[2]] as? [[String:Any]]{
+            if let iced = coffees[coffeeCategories[1]] as? [[String:Any]]{
                 for coffee in iced{
-                    totalCoffees.append(coffee)
+                    icedCoffees.append(coffee)
                 }
             }
-            
+            if let blended = coffees[coffeeCategories[2]] as? [[String:Any]]{
+                for coffee in blended{
+                    blendedCoffees.append(coffee)
+                }
+            }
+
         }
         print(coffeeDatasourceDictionary.self)
         // just for testing
@@ -129,7 +132,7 @@ class DrinksViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if menuSegmentedControl.selectedSegmentIndex == 0 {
             return 1
         }else{
-            return 3
+            return coffeeCategories.count
         }
     }
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -144,24 +147,27 @@ class DrinksViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DRINKS_CELL") as? DrinksTableViewCell
         if menuSegmentedControl.selectedSegmentIndex == 0 {
-            cell?.drinkTitle.text = totalSmoothies[indexPath.row]["name"] as? String
-            cell?.drinkDescription.text = totalSmoothies[indexPath.row]["description"] as? String
-        }else{
-            if indexPath.section == 0 {
-                if indexPath.row < 4 {
-                cell?.drinkTitle.text = totalCoffees[indexPath.row]["name"] as? String
-                cell?.drinkDescription.text = totalCoffees[indexPath.row]["description"] as? String
-                }
-            }else if indexPath.section == 1{
-                if indexPath.row < 13 {
-                cell?.drinkTitle.text = totalCoffees[indexPath.row]["name"] as? String
-                cell?.drinkDescription.text = totalCoffees[indexPath.row]["description"] as? String
-                }
+            if indexPath.row < 7{
+                cell?.drinkTitle.textColor = UIColor.init(red: 6/255, green: 43/255, blue: 98/255, alpha: 1)
             }else{
-                if indexPath.row < 16 {
-                    cell?.drinkTitle.text = totalCoffees[indexPath.row]["name"] as? String
-                    cell?.drinkDescription.text = totalCoffees[indexPath.row]["description"] as? String
-                }
+                cell?.drinkTitle.textColor = UIColor.orange
+            }
+            if let drink = totalSmoothies[indexPath.row]["name"] as? String
+            {
+                cell?.drinkTitle.text = drink.uppercased()
+                cell?.drinkDescription.text = totalSmoothies[indexPath.row]["description"] as? String
+            }
+        }else{
+            cell?.drinkTitle.textColor = UIColor.brown
+            if indexPath.section == 0 {
+                cell?.drinkTitle.text = hotCoffees[indexPath.row]["name"] as? String
+                cell?.drinkDescription.text = hotCoffees[indexPath.row]["description"] as? String
+            }else if indexPath.section == 1{
+                cell?.drinkTitle.text = icedCoffees[indexPath.row]["name"] as? String
+                cell?.drinkDescription.text = icedCoffees[indexPath.row]["description"] as? String
+            }else{
+                cell?.drinkTitle.text = blendedCoffees[indexPath.row]["name"] as? String
+                cell?.drinkDescription.text = blendedCoffees[indexPath.row]["description"] as? String
             }
         }
         return cell!
@@ -172,11 +178,11 @@ class DrinksViewController: UIViewController, UITableViewDelegate, UITableViewDa
             return totalSmoothies.count
         }else{
             if section == 0{
-                return 4
+                return hotCoffees.count
             }else if section == 1{
-                return 9
+                return icedCoffees.count
             }else{
-                return 3
+                return blendedCoffees.count
             }
         }
     }
