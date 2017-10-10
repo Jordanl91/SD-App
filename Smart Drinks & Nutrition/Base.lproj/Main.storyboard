@@ -16,7 +16,7 @@
                 <navigationController id="mgL-bm-yFy" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Drinks" image="Drinks" selectedImage="Drinks" id="eS8-uF-d4t"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="drv-ib-N90">
-                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -149,7 +149,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="7VE-h3-roy">
-                                <rect key="frame" x="16" y="76" width="343" height="29"/>
+                                <rect key="frame" x="16" y="72" width="343" height="29"/>
                                 <segments>
                                     <segment title="SMOOTHIES"/>
                                     <segment title="GOURMET COFFEE"/>
@@ -160,7 +160,7 @@
                                 </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="61" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="a1K-iv-1Ye">
-                                <rect key="frame" x="0.0" y="112" width="375" height="506"/>
+                                <rect key="frame" x="0.0" y="108" width="375" height="510"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DRINKS_CELL" rowHeight="60" id="k1J-Hk-Hca" customClass="DrinksTableViewCell" customModule="Smart_Drinks___Nutrition" customModuleProvider="target">
@@ -197,6 +197,50 @@
                                             <outlet property="drinkDescription" destination="aCa-dm-2eG" id="SJ4-17-Gup"/>
                                             <outlet property="drinkTitle" destination="rVz-BB-p5i" id="0Gt-Ld-3gB"/>
                                         </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SMOOTHIE_FOOTER" id="pYl-Yn-Cb6">
+                                        <rect key="frame" x="0.0" y="88" width="375" height="61"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pYl-Yn-Cb6" id="a6P-9X-b0W">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Smoothie_Footer" translatesAutoresizingMaskIntoConstraints="NO" id="Z8V-Nn-XIK">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="61"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="61" id="Lqu-vA-J4j"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="Z8V-Nn-XIK" secondAttribute="bottom" id="Rg0-aq-MpR"/>
+                                                <constraint firstItem="Z8V-Nn-XIK" firstAttribute="leading" secondItem="a6P-9X-b0W" secondAttribute="leading" id="mDX-W3-clH"/>
+                                                <constraint firstAttribute="trailing" secondItem="Z8V-Nn-XIK" secondAttribute="trailing" id="odU-1c-8VV"/>
+                                                <constraint firstItem="Z8V-Nn-XIK" firstAttribute="top" secondItem="a6P-9X-b0W" secondAttribute="top" id="zte-pP-4M4"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="COFFEE_FOOTER" rowHeight="120" id="fXl-9l-rAa">
+                                        <rect key="frame" x="0.0" y="149" width="375" height="120"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fXl-9l-rAa" id="vUW-UC-UPQ">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="119.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Coffee_Footer" translatesAutoresizingMaskIntoConstraints="NO" id="0FF-P9-HNF">
+                                                    <rect key="frame" x="0.0" y="8" width="375" height="111.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="111.5" id="gGZ-as-XQl"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="0FF-P9-HNF" firstAttribute="top" secondItem="vUW-UC-UPQ" secondAttribute="top" constant="8" id="5Am-oA-2hi"/>
+                                                <constraint firstAttribute="trailing" secondItem="0FF-P9-HNF" secondAttribute="trailing" id="SmZ-xk-Ycy"/>
+                                                <constraint firstAttribute="bottom" secondItem="0FF-P9-HNF" secondAttribute="bottom" id="hBK-PV-U0K"/>
+                                                <constraint firstItem="0FF-P9-HNF" firstAttribute="leading" secondItem="vUW-UC-UPQ" secondAttribute="leading" id="uKK-Pr-ivv"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -360,7 +404,7 @@
         <scene sceneID="ibd-yV-eFe">
             <objects>
                 <navigationController id="Grg-Vq-khr" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Request Truck" image="Nutrition" selectedImage="Nutrition" id="dhi-Nu-RKN"/>
+                    <tabBarItem key="tabBarItem" title="Request Truck" image="Truck" selectedImage="Truck" id="dhi-Nu-RKN"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="sl3-vY-SCa">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -452,7 +496,7 @@
                 <navigationController id="wb1-6L-6La" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Rewards" image="Rewards" selectedImage="Rewards" id="Ev6-Su-3ko"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="S9m-MP-XBM">
-                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -508,10 +552,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Coffee_Footer" width="979" height="500"/>
         <image name="Coupons" width="30" height="14"/>
         <image name="Drinks" width="15" height="30"/>
         <image name="Locations" width="18" height="30"/>
-        <image name="Nutrition" width="25" height="28"/>
         <image name="Rewards" width="26" height="29"/>
+        <image name="Smoothie_Footer" width="1369" height="243"/>
+        <image name="Truck" width="25" height="17"/>
     </resources>
 </document>

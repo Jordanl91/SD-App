@@ -30,7 +30,8 @@ class DrinksViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        drinksTableView.estimatedRowHeight = 44
+        drinksTableView.estimatedSectionFooterHeight = 120
         //smoothie processing
 //        menuSegmentedControl.addTarget(self, action: #selector(didChangeSegment), for: .touchUpInside)
         let smoothiesPathStr = Bundle.main.path(forResource: "smoothies", ofType: "plist")
@@ -192,6 +193,37 @@ class DrinksViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        if menuSegmentedControl.selectedSegmentIndex == 0{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "SMOOTHIE_FOOTER")
+            return cell
+        }else{
+            if section == 2{
+                let cell = tableView.dequeueReusableCell(withIdentifier: "COFFEE_FOOTER")
+                return cell
+            }else{
+                return nil
+            }
+        }
+        
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        if menuSegmentedControl.selectedSegmentIndex == 0 {
+            return UITableViewAutomaticDimension
+        }else{
+            if section == 0 {
+                return 0
+            }else if section == 1{
+                return 0
+            }else{
+                return UITableViewAutomaticDimension
+            }
+        }
+    }
 //    func didChangeSegment(){
 //        DispatchQueue.main.async {
 //            self.drinksTableView.reloadData()
