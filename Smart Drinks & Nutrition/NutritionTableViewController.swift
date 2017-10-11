@@ -9,7 +9,7 @@
 import UIKit
 
 class NutritionTableViewController: UITableViewController {
-@objc let nutritionNotes = "Smart Drinks & Nutrition is your one-stop-shop for all your nutritional, workout, and weight loss products. Our staff is trained in our full product line and can recommend the right product your are searching for. At Smart Drinks & Nutrition, our goal is to provide you with the healthy solution you are looking for in your life."
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +43,6 @@ class NutritionTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NUTRITION_CELL") as? NutritionTableViewCell
         // Configure the cell...
-        cell?.nutritionDetailText.text = nutritionNotes
         return cell!
     }
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
