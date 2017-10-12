@@ -28,6 +28,7 @@
 		65AEC6DC1F4F99E30059F87E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65AEC6DA1F4F99E30059F87E /* LaunchScreen.storyboard */; };
 		65AEC6E71F4F99E30059F87E /* Smart_Drinks___NutritionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AEC6E61F4F99E30059F87E /* Smart_Drinks___NutritionTests.swift */; };
 		65AEC6F21F4F99E30059F87E /* Smart_Drinks___NutritionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AEC6F11F4F99E30059F87E /* Smart_Drinks___NutritionUITests.swift */; };
+		65DC58C61F8EE1440062E432 /* RequestTruckTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DC58C51F8EE1440062E432 /* RequestTruckTableViewController.swift */; };
 		65FFA9EE1F70B87800646462 /* smoothies.plist in Resources */ = {isa = PBXBuildFile; fileRef = 65FFA9ED1F70B87800646462 /* smoothies.plist */; };
 		65FFA9F01F70BDEF00646462 /* coffee.plist in Resources */ = {isa = PBXBuildFile; fileRef = 65FFA9EF1F70BDEF00646462 /* coffee.plist */; };
 		94B1F96CB2EBAB722C78DD8F /* libPods-Smart Drinks & Nutrition.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4A3602B42867700C52C76C9 /* libPods-Smart Drinks & Nutrition.a */; };
@@ -79,6 +80,7 @@
 		65AEC6ED1F4F99E30059F87E /* Smart Drinks & NutritionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Smart Drinks & NutritionUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		65AEC6F11F4F99E30059F87E /* Smart_Drinks___NutritionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Smart_Drinks___NutritionUITests.swift"; sourceTree = "<group>"; };
 		65AEC6F31F4F99E30059F87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		65DC58C51F8EE1440062E432 /* RequestTruckTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTruckTableViewController.swift; sourceTree = "<group>"; };
 		65FFA9ED1F70B87800646462 /* smoothies.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = smoothies.plist; sourceTree = "<group>"; };
 		65FFA9EF1F70BDEF00646462 /* coffee.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = coffee.plist; sourceTree = "<group>"; };
 		E4A3602B42867700C52C76C9 /* libPods-Smart Drinks & Nutrition.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Smart Drinks & Nutrition.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -150,6 +152,7 @@
 				65AEC6D11F4F99E20059F87E /* FirstViewController.swift */,
 				65AEC6D31F4F99E20059F87E /* SecondViewController.swift */,
 				6586B4DA1F626A5B00CA1AD7 /* NutritionTableViewController.swift */,
+				65DC58C51F8EE1440062E432 /* RequestTruckTableViewController.swift */,
 				65AEC6D51F4F99E20059F87E /* Main.storyboard */,
 				65A3ECDC1F8BD6E600334BCB /* CouponsTableViewController.swift */,
 				65A3ECDE1F8BDA7100334BCB /* Coupons.plist */,
@@ -406,6 +409,7 @@
 				6586B4DB1F626A5B00CA1AD7 /* NutritionTableViewController.swift in Sources */,
 				653772B61F5FABC400F2B855 /* DrinksDetailTableViewController.swift in Sources */,
 				650E29F81F7225A3008A6624 /* DrinksViewController.swift in Sources */,
+				65DC58C61F8EE1440062E432 /* RequestTruckTableViewController.swift in Sources */,
 				653A39E71F78A43E00536C9F /* SDNDataConnector.swift in Sources */,
 				65AEC6D01F4F99E20059F87E /* AppDelegate.swift in Sources */,
 				65A3ECDD1F8BD6E600334BCB /* CouponsTableViewController.swift in Sources */,
