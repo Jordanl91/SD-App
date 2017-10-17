@@ -89,10 +89,17 @@ class DrinksViewController: UIViewController, UITableViewDelegate, UITableViewDa
                     // now you got the ids make API calls for each id to get their locations
                     if self.idsArray.count > 0 {
                         SDNGlobal.sdnInstance.coordinates.removeAll()
+                        var commaSeparatedIds = ""
                         for id in self.idsArray {
+                            if commaSeparatedIds == ""{
+                                commaSeparatedIds = "\(id)"
+                            }else{
+                                commaSeparatedIds = "\(commaSeparatedIds),\(id)"
+                            }
+                        }
                             
                             // loop for each location
-                        SDNGlobal.sdnInstance.getLocation(withTracker: id , completionHandler: {(success,error)  -> Void in
+                        SDNGlobal.sdnInstance.getLocation(withTrackers: commaSeparatedIds, completionHandler: {(success,error)  -> Void in
                             if error == nil{
                                 
                                 // clearing all the existing array values... make sure you get the same count for both the latitude and longitudes
@@ -100,6 +107,7 @@ class DrinksViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
                                 print(SDNGlobal.sdnInstance.trackingJson)
                                 if let gpsTracker = SDNGlobal.sdnInstance.trackingJson["states"] as? [String:Any] {
+                                    for id in self.idsArray{
                                     if let deviceId = gpsTracker["\(id)"] as? [String:Any] {
                                        if let gps = deviceId["gps"] as? [String:Any]{
                                            if let location = gps["location"] as? [String:Any]{
@@ -109,9 +117,10 @@ class DrinksViewController: UIViewController, UITableViewDelegate, UITableViewDa
                                         }
                                     }
                                 }
+                                }
                             }
                         })
-                        }
+                        
                     }else{
                         //show alert that there are no trucks or no data returned. This might happen when there is no network connection or server issues.
                     }

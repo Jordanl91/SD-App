@@ -11,7 +11,7 @@ import Foundation
 class SDNGlobal: NSObject {
     
     @objc static let sdnInstance = SDNGlobal()
-    private let urlHash = "9b7ad8963ea98930e09855a0759fec23"
+    private let urlHash = "6255320eeb4571edf1a62d76a6c7e17e"
     private let baseURL = "https://api.navixy.com"
     @objc var deviceId = 0
     @objc var devicesJson = [String:Any]()
@@ -37,8 +37,8 @@ class SDNGlobal: NSObject {
     @objc func updateDeviceIdURL(withURLHash:String){
         apiCalls["DeviceId"] = "/v2/tracker/list/?hash=\(withURLHash)"
     }
-    @objc func updateTrackingURL(withTracker:Int,withURLHash:String){
-        apiCalls["Tracking"] = "/v2/tracker/get_states/?trackers=[\(withTracker)]&hash=\(withURLHash)"
+    @objc func updateTrackingURL(withTrackers:String,withURLHash:String){
+        apiCalls["Tracking"] = "/v2/tracker/get_states/?trackers=[\(withTrackers)]&hash=\(withURLHash)"
     }
     
     func getDevices(completionHandler:@escaping(Bool?, NSError?) -> Void){
@@ -48,8 +48,8 @@ class SDNGlobal: NSObject {
         }
     
 
-    func getLocation(withTracker:Int, completionHandler:@escaping(Bool?, NSError?) -> Void){
-        self.updateTrackingURL(withTracker:withTracker,withURLHash:self.urlHash)
+    func getLocation(withTrackers:String, completionHandler:@escaping(Bool?, NSError?) -> Void){
+        self.updateTrackingURL(withTrackers:withTrackers,withURLHash:self.urlHash)
         self.getPayload(apiString:"Tracking"){(apiSuccess,error) -> Void in completionHandler(apiSuccess,error)}
         
     }
