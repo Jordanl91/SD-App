@@ -16,7 +16,7 @@
                 <navigationController id="mgL-bm-yFy" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Drinks" image="Drinks" selectedImage="Drinks" id="eS8-uF-d4t"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="drv-ib-N90">
-                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -516,15 +516,12 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Locations" id="Bxy-e7-cj2"/>
-                    <connections>
-                        <segue destination="KM9-tl-Sct" kind="show" identifier="toMap" id="Fz4-Q8-CSq"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lMe-2t-hjj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2694" y="669"/>
         </scene>
-        <!--Map View Controller-->
+        <!--Locations-->
         <scene sceneID="GAY-fv-6iV">
             <objects>
                 <viewController id="KM9-tl-Sct" customClass="MapViewController" customModule="Smart_Drinks___Nutrition" customModuleProvider="target" sceneMemberID="viewController">
@@ -535,8 +532,21 @@
                     <view key="view" contentMode="scaleToFill" id="X9h-fM-lRh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="LCa-Zb-SbM">
+                                <rect key="frame" x="177" y="323" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="LCa-Zb-SbM" firstAttribute="centerY" secondItem="X9h-fM-lRh" secondAttribute="centerY" id="X3o-6z-HwT"/>
+                            <constraint firstItem="LCa-Zb-SbM" firstAttribute="centerX" secondItem="X9h-fM-lRh" secondAttribute="centerX" id="jOe-rQ-8K8"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Locations" id="Hf4-TT-wSd"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="LCa-Zb-SbM" id="jeK-D4-W24"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WhM-jy-yjN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -551,7 +561,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="lGC-p7-h4O" kind="relationship" relationship="rootViewController" id="0Ql-Qk-hkF"/>
+                        <segue destination="KM9-tl-Sct" kind="relationship" relationship="rootViewController" id="hZe-EH-Y8D"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kIU-a8-FfP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -654,7 +664,7 @@
                 <navigationController id="wb1-6L-6La" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Rewards" image="Rewards" selectedImage="Rewards" id="Ev6-Su-3ko"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="S9m-MP-XBM">
-                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>

@@ -76,59 +76,6 @@ class DrinksViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
         print(coffeeDatasourceDictionary.self)
         // just for testing
-        SDNGlobal.sdnInstance.getDevices(completionHandler:{
-            (success, error) -> Void in
-            if error == nil {
-                print(SDNGlobal.sdnInstance.devicesJson)
-                if let list = SDNGlobal.sdnInstance.devicesJson["list"] as? [[String:Any]]{
-                    for tracker in list{
-                        if let ids = tracker["id"] as? Int {
-                           self.idsArray.append(ids)
-                        }
-                    }
-                    // now you got the ids make API calls for each id to get their locations
-                    if self.idsArray.count > 0 {
-                        SDNGlobal.sdnInstance.coordinates.removeAll()
-                        var commaSeparatedIds = ""
-                        for id in self.idsArray {
-                            if commaSeparatedIds == ""{
-                                commaSeparatedIds = "\(id)"
-                            }else{
-                                commaSeparatedIds = "\(commaSeparatedIds),\(id)"
-                            }
-                        }
-                            
-                            // loop for each location
-                        SDNGlobal.sdnInstance.getLocation(withTrackers: commaSeparatedIds, completionHandler: {(success,error)  -> Void in
-                            if error == nil{
-                                
-                                // clearing all the existing array values... make sure you get the same count for both the latitude and longitudes
-                        
-
-                                print(SDNGlobal.sdnInstance.trackingJson)
-                                if let gpsTracker = SDNGlobal.sdnInstance.trackingJson["states"] as? [String:Any] {
-                                    for id in self.idsArray{
-                                    if let deviceId = gpsTracker["\(id)"] as? [String:Any] {
-                                       if let gps = deviceId["gps"] as? [String:Any]{
-                                           if let location = gps["location"] as? [String:Any]{
-                                                SDNGlobal.sdnInstance.coordinates.append(location)
-                                                print(SDNGlobal.sdnInstance.coordinates)
-                                            }
-                                        }
-                                    }
-                                }
-                                }
-                            }
-                        })
-                        
-                    }else{
-                        //show alert that there are no trucks or no data returned. This might happen when there is no network connection or server issues.
-                    }
-                }
-                
-                
-            }
-        })
 
         // Do any additional setup after loading the view.
     }
