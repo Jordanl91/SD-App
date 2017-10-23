@@ -12,6 +12,9 @@ import GooglePlaces
 import GooglePlacePicker
 
 class MapViewController: UIViewController, CLLocationManagerDelegate {
+    
+    @IBOutlet weak var truckStoreSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var mapView: GMSMapView!
     var latitude = 0.0
     var longitude = 0.0
    // @objc var placesClient: GMSPlacesClient!
@@ -20,15 +23,21 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     var truckLocation = [String:Any]()
     var address = String()
     var idsArray = [Int]()
+    let storeLat = 29.9573183
+    let storeLng = -95.6747608
    
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //houston city latitude and longitude
+        let camera = GMSCameraPosition.camera(withLatitude: 29.7604, longitude: -95.3698, zoom: 12.0)
+        self.mapView.camera = camera
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         locationManager.delegate = self as? CLLocationManagerDelegate
+        getTrucksLocation()
 //        placesClient = GMSPlacesClient.shared()
 //        placesClient.currentPlace(callback: { (placeLikelihoodList, error) -> Void in
 //            if let error = error {
@@ -46,10 +55,23 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
 //            }
 //        })
         
+
+
+//        print("\(latitude)...... \(longitude)")
+        // Do any additional setup after loading the view.
+    }
+    
+    func getTrucksLocation(){
         SDNGlobal.sdnInstance.getDevices(completionHandler:{
             (success, error) -> Void in
+            DispatchQueue.main.async{
+                self.activityIndicator.startAnimating()
+                self.activityIndicator.hidesWhenStopped = true
+            }
             if error == nil {
-                print(SDNGlobal.sdnInstance.devicesJson)
+                self.idsArray.removeAll()
+                SDNGlobal.sdnInstance.coordinates.removeAll()
+                print("after getting \(SDNGlobal.sdnInstance.devicesJson)")
                 if let list = SDNGlobal.sdnInstance.devicesJson["list"] as? [[String:Any]]{
                     for tracker in list{
                         if let ids = tracker["id"] as? Int {
@@ -87,12 +109,20 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
                                             }
                                         }
                                     }
-                                    DispatchQueue.main.async {
-                                        self.showMap()
-                                        self.activityIndicator.stopAnimating()
-                                    }
+                                    
                                     
                                 }
+                                DispatchQueue.main.async {
+                                    self.showMap()
+                                    
+                                }
+                            }else{
+                                // when ever there is an error
+                                DispatchQueue.main.async {
+                                    self.activityIndicator.stopAnimating()
+                                    
+                                }
+                                
                             }
                         })
                         
@@ -104,9 +134,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
                 
             }
         })
-
-//        print("\(latitude)...... \(longitude)")
-        // Do any additional setup after loading the view.
     }
 
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -155,8 +182,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        activityIndicator.startAnimating()
-        activityIndicator.hidesWhenStopped = true
         //print(" In did appear \(latitude)...... \(longitude)")
 //        let camera = GMSCameraPosition.camera(withLatitude: (SDNGlobal.sdnInstance.coordinates[0]["lat"] as? Double)!, longitude: (SDNGlobal.sdnInstance.coordinates[0]["lng"] as? Double)!, zoom: 12.0)
 //        let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
@@ -182,10 +207,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func showMap(){
-        
-        let camera = GMSCameraPosition.camera(withLatitude: (SDNGlobal.sdnInstance.coordinates[0]["lat"] as? Double)!, longitude: (SDNGlobal.sdnInstance.coordinates[0]["lng"] as? Double)!, zoom: 12.0)
-        let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
-        view = mapView
+
+        //view = mapView
+        mapView.clear()
         let myLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake(SDNGlobal.sdnInstance.coordinates[0]["lat"] as! CLLocationDegrees, SDNGlobal.sdnInstance.coordinates[0]["lng"] as! CLLocationDegrees)
         var bounds: GMSCoordinateBounds = GMSCoordinateBounds(coordinate: myLocation, coordinate: myLocation)
         
@@ -204,8 +228,27 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             marker.snippet = address
             marker.map = mapView
         }
+        DispatchQueue.main.async {
+          self.activityIndicator.stopAnimating()
+        }
         
         
+    }
+    
+    func getPhysicalStoreLocation(){
+        // setting the camera
+        mapView.clear()
+        let camera = GMSCameraPosition.camera(withLatitude: storeLat, longitude: storeLng, zoom: 12.0)
+        self.mapView.camera = camera
+        // draw the markers
+        let markerImage = UIImage(named: "TruckMarker")!.withRenderingMode(.alwaysTemplate)
+        let markerView = UIImageView(image: markerImage)
+        let marker = GMSMarker()
+        marker.position = CLLocationCoordinate2D(latitude:storeLat, longitude: storeLng)
+        marker.iconView = markerView
+        marker.title = "Smart Drinks"
+        marker.snippet = address
+        marker.map = mapView
     }
  
 //    func focusMapToShowAllMarkers() {
@@ -227,5 +270,17 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         // Pass the selected object to the new view controller.
     }
     */
-
+    @IBAction func didChangeSegment(_ sender: Any) {
+        if (sender as AnyObject).selectedSegmentIndex == 0 {
+            //get trucks new location
+            getTrucksLocation()
+            
+        }else{
+            getPhysicalStoreLocation()
+            //get physical stores location
+            
+        }
+        
+    }
+    
 }
