@@ -281,7 +281,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="NUTRITION_CELL" rowHeight="493" id="da6-xC-cQf" customClass="NutritionTableViewCell" customModule="Smart_Drinks___Nutrition" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NUTRITION_CELL" rowHeight="493" id="da6-xC-cQf" customClass="NutritionTableViewCell" customModule="Smart_Drinks___Nutrition" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="493"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="da6-xC-cQf" id="ryB-cu-KBa">
@@ -328,6 +328,9 @@
                                             <state key="normal" title="Request">
                                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
+                                            <connections>
+                                                <action selector="requestTapped:" destination="da6-xC-cQf" eventType="touchUpInside" id="g6s-Yl-pa7"/>
+                                            </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notes:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3WN-Ja-7zY">
                                             <rect key="frame" x="8" y="335" width="45" height="21"/>
@@ -458,9 +461,13 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="addressTextField" destination="GVx-za-sCd" id="Vo2-Pk-1Wi"/>
+                                    <outlet property="dateField" destination="9rc-Vj-loL" id="0pf-Xe-HjK"/>
+                                    <outlet property="emailField" destination="Qs1-a3-SMY" id="Sca-oH-Fex"/>
                                     <outlet property="nameTextField" destination="HBN-d1-f3I" id="Sn0-pl-cYc"/>
                                     <outlet property="notes" destination="T7I-ri-STy" id="DDb-MX-WU4"/>
+                                    <outlet property="numberOfCustomerField" destination="zxS-Wi-kjV" id="se8-8C-jm3"/>
                                     <outlet property="nutritionDetailText" destination="VJa-6H-5dd" id="xas-B0-WsM"/>
+                                    <outlet property="phoneNumber" destination="hGd-t4-LUg" id="JQk-o2-8pu"/>
                                     <outlet property="requestButton" destination="zsd-aU-qDg" id="PFX-1n-B0a"/>
                                 </connections>
                             </tableViewCell>

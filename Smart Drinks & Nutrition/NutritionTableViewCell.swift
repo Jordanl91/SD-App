@@ -19,7 +19,17 @@ class NutritionTableViewCell: UITableViewCell {
     
     @IBOutlet weak var requestButton: UIButton!
     
+    @IBOutlet weak var emailField: UITextField!
     
+    @IBOutlet weak var phoneNumber: UITextField!
+    
+    @IBOutlet weak var dateField: UITextField!
+    
+    @IBOutlet weak var numberOfCustomerField: UITextField!
+    
+    
+    
+    weak var delegate:RequestTruckDelegate?
     override func awakeFromNib() {
         super.awakeFromNib()
         addressTextField.layer.borderWidth = 0.5
@@ -32,6 +42,9 @@ class NutritionTableViewCell: UITableViewCell {
         // Initialization code
     }
 
+    @IBAction func requestTapped(_ sender: Any) {
+        delegate?.didPressedRequestTruck(sender: self)
+    }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

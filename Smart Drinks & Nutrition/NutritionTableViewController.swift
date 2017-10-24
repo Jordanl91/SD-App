@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import MessageUI
 
-class NutritionTableViewController: UITableViewController {
+class NutritionTableViewController: UITableViewController, MFMessageComposeViewControllerDelegate {
 
     
     override func viewDidLoad() {
@@ -51,6 +52,33 @@ class NutritionTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return UIView()
+    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("Clicked")
+        // message function here...
+        if !MFMessageComposeViewController.canSendText() {
+            print("SMS services are not available")
+        }else{
+            let composeVC = MFMessageComposeViewController()
+            composeVC.messageComposeDelegate = self
+            
+            // Configure the fields of the interface.
+            composeVC.recipients = ["phani@techsoftinc.net"]
+            composeVC.body = "Hello from Smart Drinks"
+            
+            // Present the view controller modally.
+            self.present(composeVC, animated: true, completion: nil)
+            
+        }
+    }
+    
+    func messageComposeViewController(_ controller: MFMessageComposeViewController,
+                                      didFinishWith result: MessageComposeResult) {
+        // Check the result or perform other tasks.
+        
+        // Dismiss the message compose view controller.
+        controller.dismiss(animated: true, completion: nil)
+        
     }
     
     
