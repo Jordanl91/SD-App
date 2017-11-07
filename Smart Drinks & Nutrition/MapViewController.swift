@@ -107,16 +107,28 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
                                                     print(SDNGlobal.sdnInstance.coordinates)
                                                 }
                                             }
+                                        }else{
+                                            if let success = SDNGlobal.sdnInstance.trackingJson["success"] as? Bool{
+                                                if success == false {
+                                                    //show alert
+                                                    DispatchQueue.main.async {
+                                                        self.activityIndicator.stopAnimating()
+                                                        
+                                                    }
+                                                }
+                                            }
+                                            // device might be blocked
+                                            
                                         }
                                     }
-                                    
+                                    DispatchQueue.main.async {
+                                        self.showMap()
+                                        
+                                    }
+
                                     
                                 }
-                                DispatchQueue.main.async {
-                                    self.showMap()
-                                    
-                                }
-                            }else{
+                        }else{
                                 // when ever there is an error
                                 DispatchQueue.main.async {
                                     self.activityIndicator.stopAnimating()
@@ -241,7 +253,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         let camera = GMSCameraPosition.camera(withLatitude: storeLat, longitude: storeLng, zoom: 12.0)
         self.mapView.camera = camera
         // draw the markers
-        let markerImage = UIImage(named: "TruckMarker")!.withRenderingMode(.alwaysTemplate)
+        let markerImage = UIImage(named: "Store_Marker")!.withRenderingMode(.alwaysTemplate)
         let markerView = UIImageView(image: markerImage)
         let marker = GMSMarker()
         marker.position = CLLocationCoordinate2D(latitude:storeLat, longitude: storeLng)

@@ -87,7 +87,7 @@ class DrinksViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func numberOfSections(in tableView: UITableView) -> Int {
         if menuSegmentedControl.selectedSegmentIndex == 0 {
-            return 1
+            return 2
         }else{
             return coffeeCategories.count
         }
@@ -104,6 +104,7 @@ class DrinksViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DRINKS_CELL") as? DrinksTableViewCell
         if menuSegmentedControl.selectedSegmentIndex == 0 {
+            if indexPath.section == 0{
             if indexPath.row < 7{
                 cell?.drinkTitle.textColor = UIColor.init(red: 6/255, green: 43/255, blue: 98/255, alpha: 1)
             }else{
@@ -113,6 +114,9 @@ class DrinksViewController: UIViewController, UITableViewDelegate, UITableViewDa
             {
                 cell?.drinkTitle.text = drink.uppercased()
                 cell?.drinkDescription.text = totalSmoothies[indexPath.row]["description"] as? String
+            }
+            }else{
+                return UITableViewCell()
             }
         }else{
             cell?.drinkTitle.textColor = UIColor.brown
@@ -132,7 +136,10 @@ class DrinksViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if menuSegmentedControl.selectedSegmentIndex == 0{
+            if section == 0{
             return totalSmoothies.count
+            }
+            return 0
         }else{
             if section == 0{
                 return hotCoffees.count
@@ -151,8 +158,12 @@ class DrinksViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         if menuSegmentedControl.selectedSegmentIndex == 0{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "SMOOTHIE_FOOTER")
-            return cell
+            if section == 1{
+                let cell = tableView.dequeueReusableCell(withIdentifier: "SMOOTHIE_FOOTER")
+                return cell
+            }else{
+                return nil
+            }
         }else{
             if section == 2{
                 let cell = tableView.dequeueReusableCell(withIdentifier: "COFFEE_FOOTER")
@@ -169,7 +180,11 @@ class DrinksViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         if menuSegmentedControl.selectedSegmentIndex == 0 {
+            if section == 1 {
             return UITableViewAutomaticDimension
+            }else{
+                return 0
+            }
         }else{
             if section == 0 {
                 return 0

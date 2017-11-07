@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,17 +23,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo_W_Title" translatesAutoresizingMaskIntoConstraints="NO" id="Q5Z-w5-aWX">
-                                <rect key="frame" x="72" y="302" width="230" height="62"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SDNLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Q5Z-w5-aWX">
+                                <rect key="frame" x="36" y="297" width="302" height="72"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="62" id="mrj-c6-d7o"/>
-                                    <constraint firstAttribute="width" constant="230" id="zlR-Bg-FPX"/>
+                                    <constraint firstAttribute="width" secondItem="Q5Z-w5-aWX" secondAttribute="height" multiplier="38:9" id="Kcm-5d-8q6"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Q5Z-w5-aWX" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="5mh-Fv-7eb"/>
+                            <constraint firstItem="Q5Z-w5-aWX" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="20" id="AbE-fX-S5E"/>
                             <constraint firstItem="Q5Z-w5-aWX" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Cbg-fF-y08"/>
                         </constraints>
                     </view>
@@ -42,6 +44,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Logo_W_Title" width="130" height="33"/>
+        <image name="SDNLogo" width="380" height="90"/>
     </resources>
 </document>
