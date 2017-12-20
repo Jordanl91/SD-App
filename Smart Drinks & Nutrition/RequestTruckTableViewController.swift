@@ -10,12 +10,12 @@ import UIKit
 import MessageUI
 protocol RequestTruckDelegate : class {
     func didPressedRequestTruck(sender: NutritionTableViewCell)
+    //func showDatePicker(sender:NutritionTableViewCell)
 }
-class RequestTruckTableViewController: UITableViewController {
-    
 
-    
-    
+
+class RequestTruckTableViewController: UITableViewController {
+    var customerCount = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.estimatedRowHeight = 44
@@ -108,9 +108,25 @@ class RequestTruckTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return 1000
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return String(row+1)
+    }
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        customerCount = row+1
+    }
 
 }
 extension RequestTruckTableViewController: RequestTruckDelegate, MFMessageComposeViewControllerDelegate{
+    
     func didPressedRequestTruck(sender: NutritionTableViewCell) {
         if !MFMessageComposeViewController.canSendText() {
             print("SMS services are not available")
@@ -136,5 +152,19 @@ extension RequestTruckTableViewController: RequestTruckDelegate, MFMessageCompos
         controller.dismiss(animated: true, completion: nil)
         
     }
+    
+//    func showDatePicker(sender:NutritionTableViewCell){
+//        datePickerHeightConstraint.constant = 162
+//        truckDatePicker.isOpaque = true
+//        truckDatePicker.isHidden = false
+//    }
+//
+//    func hideDatePicker(sender:NutritionTableViewCell){
+//        datePickerHeightConstraint.constant = 0
+//        truckDatePicker.isHidden = true
+//    }
+    
 
 }
+
+

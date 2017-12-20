@@ -9,9 +9,9 @@
 import UIKit
 import MessageUI
 
-class NutritionTableViewController: UITableViewController, MFMessageComposeViewControllerDelegate {
+class NutritionTableViewController: UITableViewController, MFMessageComposeViewControllerDelegate, UITextViewDelegate {
 
-    
+    weak var delegate:RequestTruckDelegate?
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.estimatedRowHeight = 44
@@ -81,6 +81,9 @@ class NutritionTableViewController: UITableViewController, MFMessageComposeViewC
         
     }
     
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        
+    }
     
     /*
     // Override to support conditional editing of the table view.
