@@ -16,7 +16,7 @@
                 <navigationController id="mgL-bm-yFy" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Drinks" image="Drinks" selectedImage="Drinks" id="eS8-uF-d4t"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="drv-ib-N90">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -281,7 +281,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NUTRITION_CELL" rowHeight="674" id="da6-xC-cQf" customClass="NutritionTableViewCell" customModule="Smart_Drinks___Nutrition" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="NUTRITION_CELL" rowHeight="674" id="da6-xC-cQf" customClass="NutritionTableViewCell" customModule="Smart_Drinks___Nutrition" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="674"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="da6-xC-cQf" id="ryB-cu-KBa">
@@ -606,7 +606,7 @@
                                 <rect key="frame" x="177" y="323" width="20" height="20"/>
                             </activityIndicatorView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="8bb-qW-IDz">
-                                <rect key="frame" x="16" y="72" width="343" height="29"/>
+                                <rect key="frame" x="16" y="76" width="343" height="29"/>
                                 <segments>
                                     <segment title="Trucks"/>
                                     <segment title="Stores"/>
@@ -752,7 +752,7 @@
                 <navigationController id="wb1-6L-6La" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Rewards" image="Rewards" selectedImage="Rewards" id="Ev6-Su-3ko"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="S9m-MP-XBM">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>

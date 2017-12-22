@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NutritionTableViewCell: UITableViewCell, UITextFieldDelegate {
+class NutritionTableViewCell: UITableViewCell, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     @IBOutlet weak var nutritionDetailText: UILabel!
 
     @IBOutlet weak var nameTextField: UITextField!
@@ -34,6 +34,7 @@ class NutritionTableViewCell: UITableViewCell, UITextFieldDelegate {
     @IBOutlet weak var heightForCustomerCountPicker: NSLayoutConstraint!
     
     @IBOutlet weak var heightForDatePicker: NSLayoutConstraint!
+    var customerCount = 0
     
     weak var delegate:RequestTruckDelegate?
     override func awakeFromNib() {
@@ -49,6 +50,7 @@ class NutritionTableViewCell: UITableViewCell, UITextFieldDelegate {
         requestButton.layer.cornerRadius = 5
         dateField.delegate = self
         numberOfCustomerField.delegate = self
+        numberOfCustomersPicker.delegate = self
         // Initialization code
     }
 
@@ -77,6 +79,22 @@ class NutritionTableViewCell: UITableViewCell, UITextFieldDelegate {
         if textField == numberOfCustomerField{
             heightForCustomerCountPicker.constant = 0
         }
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        
+            return 10
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return String(row+1)
+    }
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        customerCount = row+1
     }
 
 }
