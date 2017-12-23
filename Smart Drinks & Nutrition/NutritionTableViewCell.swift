@@ -51,6 +51,8 @@ class NutritionTableViewCell: UITableViewCell, UITextFieldDelegate, UIPickerView
         dateField.delegate = self
         numberOfCustomerField.delegate = self
         numberOfCustomersPicker.delegate = self
+        truckDatePicker.minimumDate = Date()
+        truckDatePicker.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
         // Initialization code
     }
 
@@ -81,6 +83,13 @@ class NutritionTableViewCell: UITableViewCell, UITextFieldDelegate, UIPickerView
         }
     }
     
+    func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
+        if textField == dateField {
+            return false; //do not show keyboard nor cursor
+        }
+        return true
+    }
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -91,10 +100,26 @@ class NutritionTableViewCell: UITableViewCell, UITextFieldDelegate, UIPickerView
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return String(row+1)
+        if row == 9{
+            return "\(row+1)+"
+        }else{
+          return String(row+1)
+        }
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        customerCount = row+1
+        if pickerView == numberOfCustomersPicker{
+            if row == 9{
+                numberOfCustomerField.text = "\(row+1)+"
+            }else{
+                numberOfCustomerField.text = "\(row+1)"
+            }
+        }
+    }
+    
+    @objc func dateChanged(_ sender: UIDatePicker){
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        dateField.text = dateFormatter.string(from:sender.date)
     }
 
 }
