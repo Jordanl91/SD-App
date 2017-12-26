@@ -57,7 +57,12 @@ class NutritionTableViewCell: UITableViewCell, UITextFieldDelegate, UIPickerView
     }
 
     @IBAction func requestTapped(_ sender: Any) {
-        delegate?.didPressedRequestTruck(sender: self)
+        if (nameTextField.text!.removingWhitespaces().count != 0 && addressTextField.text.removingWhitespaces().count != 0 && dateField.text!.removingWhitespaces().count != 0 ) {
+            delegate?.didPressedRequestTruck(sender: self)
+        }else{
+            print(nameTextField.text!.removingWhitespaces().count,addressTextField.text.removingWhitespaces().count,dateField.text!.removingWhitespaces().count)
+            // throw alert.
+        }
     }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -120,6 +125,13 @@ class NutritionTableViewCell: UITableViewCell, UITextFieldDelegate, UIPickerView
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd/yyyy"
         dateField.text = dateFormatter.string(from:sender.date)
+    }
+
+}
+
+extension String {
+    func removingWhitespaces() -> String {
+        return components(separatedBy: .whitespacesAndNewlines).joined()
     }
 
 }
