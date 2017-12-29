@@ -10,6 +10,7 @@ import UIKit
 import MessageUI
 protocol RequestTruckDelegate : class {
     func didPressedRequestTruck(sender: NutritionTableViewCell)
+    func showAlert()
     //func showDatePicker(sender:NutritionTableViewCell)
 }
 
@@ -153,6 +154,15 @@ extension RequestTruckTableViewController: RequestTruckDelegate, MFMessageCompos
         
     }
     
+    func showAlert(){
+        //This method called when the required fields are not satisfied.
+        let alert = UIAlertController(title: "Missing fields", message: "Please enter all the mandatory fields", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .`default`, handler: { _ in
+            NSLog("The \"OK\" alert occured.")
+        }))
+        self.present(alert, animated: true, completion: nil)
+
+    }
 //    func showDatePicker(sender:NutritionTableViewCell){
 //        datePickerHeightConstraint.constant = 162
 //        truckDatePicker.isOpaque = true

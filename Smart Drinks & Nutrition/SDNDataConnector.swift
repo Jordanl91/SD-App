@@ -11,7 +11,7 @@ import Foundation
 class SDNGlobal: NSObject {
     
     @objc static let sdnInstance = SDNGlobal()
-    private let urlHash = "6255320eeb4571edf1a62d76a6c7e17e"
+    private let urlHash = "299af7d18e3d7eb92d74d9e2c233ef62"
     private let baseURL = "https://api.navixy.com"
     @objc var deviceId = 0
     @objc var devicesJson = [String:Any]()

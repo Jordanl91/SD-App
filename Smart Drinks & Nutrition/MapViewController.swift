@@ -11,7 +11,7 @@ import GoogleMaps
 import GooglePlaces
 import GooglePlacePicker
 
-class MapViewController: UIViewController, CLLocationManagerDelegate {
+class MapViewController: UIViewController, CLLocationManagerDelegate,GMSMapViewDelegate {
     
     @IBOutlet weak var truckStoreSegmentedControl: UISegmentedControl!
     @IBOutlet weak var mapView: GMSMapView!
@@ -61,6 +61,17 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         // Do any additional setup after loading the view.
     }
     
+    
+    func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
+        if (UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!)) {
+            print("comgooglemaps://?daddr=\(marker.position.latitude),\(marker.position.longitude)&directionsmode=driving")
+            UIApplication.shared.openURL(URL(string:
+                "comgooglemaps://?daddr=\(marker.position.latitude),\(marker.position.longitude)&directionsmode=driving")!)
+        } else {
+            print("Can't use comgooglemaps://");
+        }
+    }
+
     func getTrucksLocation(){
         SDNGlobal.sdnInstance.getDevices(completionHandler:{
             (success, error) -> Void in
@@ -258,7 +269,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         let marker = GMSMarker()
         marker.position = CLLocationCoordinate2D(latitude:storeLat, longitude: storeLng)
         marker.iconView = markerView
-        marker.title = "Smart Drinks"
+        marker.title = "Smart Drinks, 12343 Barker Cypress, Ste. 250 Cypress, TX 77249"
         marker.snippet = address
         marker.map = mapView
     }

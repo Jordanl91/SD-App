@@ -62,6 +62,7 @@ class NutritionTableViewCell: UITableViewCell, UITextFieldDelegate, UIPickerView
         }else{
             print(nameTextField.text!.removingWhitespaces().count,addressTextField.text.removingWhitespaces().count,dateField.text!.removingWhitespaces().count)
             // throw alert.
+            delegate?.showAlert()
         }
     }
     override func setSelected(_ selected: Bool, animated: Bool) {
