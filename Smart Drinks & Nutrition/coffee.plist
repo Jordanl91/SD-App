@@ -8,7 +8,7 @@
 		<array>
             <dict>
                 <key>description</key>
-                <string>(Espresso and hot water)</string>
+                <string>Espresso and hot water</string>
                 <key>name</key>
                 <string>AMERICANO</string>
             </dict>
@@ -16,49 +16,49 @@
                 <key>name</key>
                 <string>CAFE LATTÉ</string>
                 <key>description</key>
-                <string>(Espresso and streamed milk)</string>
+                <string>Espresso and streamed milk</string>
             </dict>
             <dict>
                 <key>name</key>
                 <string>CAPPUCCINO</string>
                 <key>description</key>
-                <string>(Espresso, flavored foamed milk)</string>
+                <string>Espresso, flavored foamed milk</string>
             </dict>
             <dict>
                 <key>name</key>
                 <string>FLAVORED LATTÉ</string>
                 <key>description</key>
-                <string>(Espresso, flavored syrup and steamed milk)</string>
+                <string>Espresso, flavored syrup and steamed milk</string>
             </dict>
             <dict>
                 <key>name</key>
                 <string>CARAMEL MACCHITO</string>
                 <key>description</key>
-                <string>(Espresso, foamed milk, vanilla syrup and caramel sauce)</string>
+                <string>Espresso, foamed milk, vanilla syrup and caramel sauce</string>
             </dict>
             <dict>
                 <key>name</key>
                 <string>MOCHAFFÉ</string>
                 <key>description</key>
-                <string>(Espresso, steamed milk, mocha syrup and whipped cream)</string>
+                <string>Espresso, steamed milk, mocha syrup and whipped cream</string>
             </dict>
             <dict>
                 <key>name</key>
                 <string>CARAMEL MOCHAFFÉ</string>
                 <key>description</key>
-                <string>(Espresso and streamed milk, mocha syrup and whipped cream and caramel sauce )</string>
+                <string>Espresso and streamed milk, mocha syrup and whipped cream and caramel sauce</string>
             </dict>
             <dict>
                 <key>name</key>
                 <string>HOT CHOCOLATE</string>
                 <key>description</key>
-                <string>(Chocolate syrup, vanilla syrup, 2% milk and whipped cream)</string>
+                <string>Chocolate syrup, vanilla syrup, 2% milk and whipped cream</string>
             </dict>
 			<dict>
 				<key>name</key>
 				<string>ESPRESSO</string>
 				<key>description</key>
-				<string>(Dark gourmet roasted coffee)</string>
+				<string>Dark gourmet roasted coffee</string>
 			</dict>
 		</array>
 		<key>ICED DRINKS</key>
@@ -67,17 +67,17 @@
 				<key>name</key>
 				<string>FREDDO LATTÉ</string>
 				<key>description</key>
-				<string>(Milk, espresso and ice)</string>
+				<string>Milk, espresso and ice</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>FREDDO CARAMEL</string>
 				<key>description</key>
-				<string>(milk, espresso, ice and caramel syrup)</string>
+				<string>milk, espresso, ice and caramel syrup</string>
 			</dict>
 			<dict>
 				<key>description</key>
-				<string>(Milk, espresso, ice and chocolate syrup)</string>
+				<string>Milk, espresso, ice and chocolate syrup</string>
 				<key>name</key>
 				<string>FREDDO MOCHA</string>
 			</dict>
@@ -88,25 +88,25 @@
                 <key>name</key>
                 <string>MOCHA FRAPPÉCCIANO</string>
                 <key>description</key>
-                <string>(Frappecciano beverage mix, chocolate syrup, ice and whipped cream)</string>
+                <string>Frappecciano beverage mix, chocolate syrup, ice and whipped cream</string>
             </dict>
             <dict>
                 <key>name</key>
                 <string>CARAMEL FRAPPÉCCIANO (NO COFFEE)</string>
                 <key>description</key>
-                <string>(Creme beverage mix, caramel syrup, ice, whipped cream and caramel sauce)</string>
+                <string>Creme beverage mix, caramel syrup, ice, whipped cream and caramel sauce</string>
             </dict>
             <dict>
                 <key>name</key>
                 <string>MOCHANUT FRAPPÉCCIANO</string>
                 <key>description</key>
-                <string>(Frappecciano beverage mix, coconut and mocha syrup, ice and whipped cream)</string>
+                <string>Frappecciano beverage mix, coconut and mocha syrup, ice and whipped cream</string>
             </dict>
             <dict>
                 <key>name</key>
                 <string>VANILLA FRAPPÉCCIANO (NO COFFEE)</string>
                 <key>description</key>
-                <string>(Creme beverage mix, vanilla syrup, ice and whipped cream)</string>
+                <string>Creme beverage mix, vanilla syrup, ice and whipped cream</string>
             </dict>
         </array>
 	</dict>

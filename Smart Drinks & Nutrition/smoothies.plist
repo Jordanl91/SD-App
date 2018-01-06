@@ -8,7 +8,7 @@
 		<array>
 			<dict>
 				<key>description</key>
-				<string>(Banana, cranberry juice, turbinado and vitamin C)</string>
+				<string>Banana, cranberry juice, turbinado and vitamin C</string>
 				<key>name</key>
 				<string>Smart Recovery</string>
 			</dict>
@@ -16,37 +16,37 @@
 				<key>name</key>
 				<string>Smart Fuel</string>
 				<key>description</key>
-				<string>(Banana, pinaeapple, 2% milk, honey, turbinado and protein)</string>
+				<string>Banana, pinaeapple, 2% milk, honey, turbinado and protein</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>Smart Meal</string>
 				<key>description</key>
-				<string>(Banana, orange juice, 2% milk, turbinado and meal replacement)</string>
+				<string>Banana, orange juice, 2% milk, turbinado and meal replacement</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>Smart Blasst</string>
 				<key>description</key>
-				<string>(Chocolate protein, honey, 2% milk and turbinado)</string>
+				<string>Chocolate protein, honey, 2% milk and turbinado</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>Smart Fusion</string>
 				<key>description</key>
-				<string>(Pineapple, strawberry, antioxidant, 2% milk and turbinado)</string>
+				<string>Pineapple, strawberry, antioxidant, 2% milk and turbinado</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>Smart Burner</string>
 				<key>description</key>
-				<string>(Blueberry, banana, fat burner, 2% milk and turbinado)</string>
+				<string>Blueberry, banana, fat burner, 2% milk and turbinado</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>Smart Low Carb</string>
 				<key>description</key>
-				<string>(Banana, strawberry, 2% milk, turbinado and low carb protein)</string>
+				<string>Banana, strawberry, 2% milk, turbinado and low carb protein</string>
 			</dict>
 		</array>
 		<key>Fruit smoothies</key>
@@ -55,29 +55,29 @@
 				<key>name</key>
 				<string>Banana Vanilla</string>
 				<key>description</key>
-				<string>(Banana, vanilla, 2% milk and turbinado)</string>
+				<string>Banana, vanilla, 2% milk and turbinado</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>Strawberry Banana</string>
 				<key>description</key>
-				<string>(Strawberry, banana, 2% milk and turbinado)</string>
+				<string>Strawberry, banana, 2% milk and turbinado</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>Mango Peach</string>
 				<key>description</key>
-				<string>(Mango, peach, 2% milk and turbinado)</string>
+				<string>Mango, peach, 2% milk and turbinado</string>
 			</dict>
 			<dict>
 				<key>name</key>
 				<string>Tropical</string>
 				<key>description</key>
-				<string>(Pineapple, mango, banana, orange, 2% milk and turbinado)</string>
+				<string>Pineapple, mango, banana, orange, 2% milk and turbinado</string>
 			</dict>
 			<dict>
 				<key>description</key>
-				<string>(Pinapple, banana, papaya, orange, 2% milk and turbinado)</string>
+				<string>Pinapple, banana, papaya, orange, 2% milk and turbinado</string>
 				<key>name</key>
 				<string>Hawaiian</string>
 			</dict>

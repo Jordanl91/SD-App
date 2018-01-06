@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NutritionTableViewCell: UITableViewCell, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+class NutritionTableViewCell: UITableViewCell, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UITextViewDelegate {
     @IBOutlet weak var nutritionDetailText: UILabel!
 
     @IBOutlet weak var nameTextField: UITextField!
@@ -44,13 +44,20 @@ class NutritionTableViewCell: UITableViewCell, UITextFieldDelegate, UIPickerView
         notes.layer.cornerRadius = 5
         requestButton.layer.cornerRadius = 5
         dateField.delegate = self
+        notes.delegate = self
+        emailField.delegate = self
+        addressTextField.delegate = self
+        nameTextField.delegate = self
         numberOfCustomerField.delegate = self
+        phoneNumber.delegate = self
 //        numberOfCustomersPicker.delegate = self
         truckDatePicker.minimumDate = Date()
         truckDatePicker.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
         dateField.inputView = truckDatePicker
         numberOfCustomerField.inputView = pickerView
         truckDatePicker.datePickerMode = UIDatePickerMode.date
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard(_:)))
+        self.contentView.addGestureRecognizer(tapGesture)
         // Initialization code
     }
 
@@ -63,6 +70,10 @@ class NutritionTableViewCell: UITableViewCell, UITextFieldDelegate, UIPickerView
             delegate?.showAlert()
         }
     }
+    
+    @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
+        self.endEditing(true)
+    }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
@@ -72,16 +83,17 @@ class NutritionTableViewCell: UITableViewCell, UITextFieldDelegate, UIPickerView
 
     }
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        textField.resignFirstResponder()
-    }
     
-    func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
-        if textField == dateField {
-            
-            return true //do not show keyboard nor cursor
-        }
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         return true
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+//        delegate?.dismissKeyboard()
+        return true
+    }
+    func textViewDidEndEditing(_ textView: UITextView) {
+        textView.resignFirstResponder()
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

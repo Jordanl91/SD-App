@@ -170,8 +170,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LABEL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rVz-BB-p5i">
-                                                    <rect key="frame" x="15" y="11" width="345" height="15.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="751" verticalHuggingPriority="251" text="LABEL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rVz-BB-p5i">
+                                                    <rect key="frame" x="15" y="11" width="55" height="15.5"/>
                                                     <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -182,11 +182,19 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b7H-St-nW9">
+                                                    <rect key="frame" x="70" y="11" width="12.5" height="10"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="8"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="aCa-dm-2eG" firstAttribute="top" secondItem="rVz-BB-p5i" secondAttribute="bottom" constant="8" id="3ja-iI-ACO"/>
                                                 <constraint firstItem="aCa-dm-2eG" firstAttribute="trailing" secondItem="FNy-PX-NTV" secondAttribute="trailingMargin" id="H5D-HB-TEo"/>
-                                                <constraint firstItem="rVz-BB-p5i" firstAttribute="trailing" secondItem="FNy-PX-NTV" secondAttribute="trailingMargin" id="YCs-fd-JBv"/>
+                                                <constraint firstItem="b7H-St-nW9" firstAttribute="leading" secondItem="rVz-BB-p5i" secondAttribute="trailing" id="KDk-hF-k0Z"/>
+                                                <constraint firstItem="rVz-BB-p5i" firstAttribute="trailing" secondItem="FNy-PX-NTV" secondAttribute="trailingMargin" priority="750" constant="-40" id="YCs-fd-JBv"/>
+                                                <constraint firstItem="b7H-St-nW9" firstAttribute="top" secondItem="rVz-BB-p5i" secondAttribute="top" id="aa3-w9-9cT"/>
                                                 <constraint firstItem="aCa-dm-2eG" firstAttribute="bottom" secondItem="FNy-PX-NTV" secondAttribute="bottomMargin" id="efT-XZ-DG1"/>
                                                 <constraint firstItem="rVz-BB-p5i" firstAttribute="top" secondItem="FNy-PX-NTV" secondAttribute="topMargin" id="l3h-94-2cT"/>
                                                 <constraint firstItem="aCa-dm-2eG" firstAttribute="leading" secondItem="FNy-PX-NTV" secondAttribute="leadingMargin" id="m9e-9V-rzj"/>

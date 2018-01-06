@@ -11,6 +11,7 @@ import MessageUI
 protocol RequestTruckDelegate : class {
     func didPressedRequestTruck(sender: NutritionTableViewCell)
     func showAlert()
+    func dismissKeyboard()
     //func showDatePicker(sender:NutritionTableViewCell)
 }
 
@@ -162,6 +163,10 @@ extension RequestTruckTableViewController: RequestTruckDelegate, MFMessageCompos
         }))
         self.present(alert, animated: true, completion: nil)
 
+    }
+    
+    func dismissKeyboard() {
+        self.resignFirstResponder()
     }
 //    func showDatePicker(sender:NutritionTableViewCell){
 //        datePickerHeightConstraint.constant = 162
