@@ -27,20 +27,15 @@ class NutritionTableViewCell: UITableViewCell, UITextFieldDelegate, UIPickerView
     
     @IBOutlet weak var numberOfCustomerField: UITextField!
     
-    @IBOutlet weak var truckDatePicker: UIDatePicker!
-    
-    @IBOutlet weak var numberOfCustomersPicker: UIPickerView!
-    
-    @IBOutlet weak var heightForCustomerCountPicker: NSLayoutConstraint!
-    
-    @IBOutlet weak var heightForDatePicker: NSLayoutConstraint!
+
     var customerCount = 0
     
     weak var delegate:RequestTruckDelegate?
     override func awakeFromNib() {
         super.awakeFromNib()
-        heightForDatePicker.constant = 0
-        heightForCustomerCountPicker.constant = 0
+        let pickerView = UIPickerView()
+        pickerView.delegate = self
+        let truckDatePicker = UIDatePicker()
         addressTextField.layer.borderWidth = 0.5
         addressTextField.layer.cornerRadius = 5
         addressTextField.layer.borderColor = UIColor.lightGray.cgColor
@@ -50,9 +45,12 @@ class NutritionTableViewCell: UITableViewCell, UITextFieldDelegate, UIPickerView
         requestButton.layer.cornerRadius = 5
         dateField.delegate = self
         numberOfCustomerField.delegate = self
-        numberOfCustomersPicker.delegate = self
+//        numberOfCustomersPicker.delegate = self
         truckDatePicker.minimumDate = Date()
         truckDatePicker.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
+        dateField.inputView = truckDatePicker
+        numberOfCustomerField.inputView = pickerView
+        truckDatePicker.datePickerMode = UIDatePickerMode.date
         // Initialization code
     }
 
@@ -71,27 +69,17 @@ class NutritionTableViewCell: UITableViewCell, UITextFieldDelegate, UIPickerView
         // Configure the view for the selected state
     }
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        if textField == dateField{
-            heightForDatePicker.constant = 162
-        }
-        
-        if textField == numberOfCustomerField{
-            heightForCustomerCountPicker.constant = 162
-        }
+
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        if textField == dateField{
-            heightForDatePicker.constant = 0
-        }
-        if textField == numberOfCustomerField{
-            heightForCustomerCountPicker.constant = 0
-        }
+        textField.resignFirstResponder()
     }
     
     func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
         if textField == dateField {
-            return false; //do not show keyboard nor cursor
+            
+            return true //do not show keyboard nor cursor
         }
         return true
     }
@@ -114,14 +102,11 @@ class NutritionTableViewCell: UITableViewCell, UITextFieldDelegate, UIPickerView
         }
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if pickerView == numberOfCustomersPicker{
             if row == 5{
                 numberOfCustomerField.text = "\(row*10)+"
             }else{
                 numberOfCustomerField.text = "\(String(row*10+1))-\(String((row+1)*10))"
             }
-        }
-        
     }
     
     @objc func dateChanged(_ sender: UIDatePicker){
