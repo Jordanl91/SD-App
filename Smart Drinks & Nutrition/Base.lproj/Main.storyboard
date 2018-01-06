@@ -204,6 +204,7 @@
                                         <connections>
                                             <outlet property="drinkDescription" destination="aCa-dm-2eG" id="SJ4-17-Gup"/>
                                             <outlet property="drinkTitle" destination="rVz-BB-p5i" id="0Gt-Ld-3gB"/>
+                                            <outlet property="trademark" destination="b7H-St-nW9" id="N9i-4Q-JE4"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SMOOTHIE_FOOTER" id="pYl-Yn-Cb6">

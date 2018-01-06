@@ -107,8 +107,11 @@ class DrinksViewController: UIViewController, UITableViewDelegate, UITableViewDa
             if indexPath.section == 0{
             if indexPath.row < 7{
                 cell?.drinkTitle.textColor = UIColor.init(red: 6/255, green: 43/255, blue: 98/255, alpha: 1)
+                cell?.trademark.textColor = UIColor.init(red: 6/255, green: 43/255, blue: 98/255, alpha: 1)
+                cell?.trademark.isHidden = false
             }else{
                 cell?.drinkTitle.textColor = UIColor.orange
+                cell?.trademark.isHidden = true
             }
             if let drink = totalSmoothies[indexPath.row]["name"] as? String
             {
@@ -120,15 +123,23 @@ class DrinksViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }
         }else{
             cell?.drinkTitle.textColor = UIColor.brown
+            cell?.trademark.textColor = UIColor.brown
             if indexPath.section == 0 {
                 cell?.drinkTitle.text = hotCoffees[indexPath.row]["name"] as? String
                 cell?.drinkDescription.text = hotCoffees[indexPath.row]["description"] as? String
+                if indexPath.row == 5 || indexPath.row == 6{
+                    cell?.trademark.isHidden = false
+                }else{
+                    cell?.trademark.isHidden = true
+                }
             }else if indexPath.section == 1{
                 cell?.drinkTitle.text = icedCoffees[indexPath.row]["name"] as? String
                 cell?.drinkDescription.text = icedCoffees[indexPath.row]["description"] as? String
+                cell?.trademark.isHidden = true
             }else{
                 cell?.drinkTitle.text = blendedCoffees[indexPath.row]["name"] as? String
                 cell?.drinkDescription.text = blendedCoffees[indexPath.row]["description"] as? String
+                cell?.trademark.isHidden = false
             }
         }
         return cell!

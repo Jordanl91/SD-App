@@ -14,6 +14,8 @@ class DrinksTableViewCell: UITableViewCell {
     
     @IBOutlet weak var drinkDescription: UILabel!
     
+    @IBOutlet weak var trademark: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

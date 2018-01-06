@@ -92,7 +92,7 @@
             </dict>
             <dict>
                 <key>name</key>
-                <string>CARAMEL FRAPPÉCCIANO (NO COFFEE)</string>
+                <string>CARAMEL FRAPPÉCCIANO</string>
                 <key>description</key>
                 <string>Creme beverage mix, caramel syrup, ice, whipped cream and caramel sauce</string>
             </dict>
@@ -104,7 +104,7 @@
             </dict>
             <dict>
                 <key>name</key>
-                <string>VANILLA FRAPPÉCCIANO (NO COFFEE)</string>
+                <string>VANILLA FRAPPÉCCIANO</string>
                 <key>description</key>
                 <string>Creme beverage mix, vanilla syrup, ice and whipped cream</string>
             </dict>
