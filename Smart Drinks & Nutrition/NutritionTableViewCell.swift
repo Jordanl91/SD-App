@@ -100,26 +100,28 @@ class NutritionTableViewCell: UITableViewCell, UITextFieldDelegate, UIPickerView
         return 1
     }
     
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func pickerView
+        (_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         
-            return 10
+            return 6
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        if row == 9{
-            return "\(row+1)+"
+        if row == 5{
+            return "\(row*10)+"
         }else{
-          return String(row+1)
+          return "\(String(row*10+1))-\(String((row+1)*10))"
         }
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView == numberOfCustomersPicker{
-            if row == 9{
-                numberOfCustomerField.text = "\(row+1)+"
+            if row == 5{
+                numberOfCustomerField.text = "\(row*10)+"
             }else{
-                numberOfCustomerField.text = "\(row+1)"
+                numberOfCustomerField.text = "\(String(row*10+1))-\(String((row+1)*10))"
             }
         }
+        
     }
     
     @objc func dateChanged(_ sender: UIDatePicker){
