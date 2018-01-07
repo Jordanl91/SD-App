@@ -593,6 +593,7 @@
                                     <segment title="Trucks"/>
                                     <segment title="Stores"/>
                                 </segments>
+                                <color key="tintColor" red="0.062745098040000002" green="0.29411764709999999" blue="0.56862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="didChangeSegment:" destination="KM9-tl-Sct" eventType="valueChanged" id="wmd-qN-02O"/>
                                 </connections>

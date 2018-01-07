@@ -242,11 +242,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate,GMSMapViewD
         }
         
         for (index,location) in SDNGlobal.sdnInstance.coordinates.enumerated(){
-            let markerImage = UIImage(named: "TruckMarker")!.withRenderingMode(.alwaysTemplate)
-            let markerView = UIImageView(image: markerImage)
+//            let markerImage = UIImage(named: "TruckMarker")!.withRenderingMode(.alwaysTemplate)
+//            let markerView = UIImageView(image: markerImage)
             let marker = GMSMarker()
             marker.position = CLLocationCoordinate2D(latitude: (location["lat"] as? Double)!, longitude: (location["lng"] as? Double)!)
-            marker.iconView = markerView
+            marker.icon = UIImage(named: "TruckMarker")
             marker.title = "Smart Drinks Truck \(index+1)"
             marker.snippet = address
             marker.map = mapView
