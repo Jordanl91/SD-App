@@ -51,6 +51,13 @@ class RequestTruckTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NUTRITION_CELL") as? NutritionTableViewCell
         // Configure the cell...
         cell?.delegate = self
+        cell?.nameTextField.text = ""
+        cell?.phoneNumber.text = ""
+        cell?.dateField.text = ""
+        cell?.emailField.text = ""
+        cell?.numberOfCustomerField.text = ""
+        cell?.addressTextField.text = ""
+        cell?.notes.text = ""
         
         return cell!
 
@@ -149,6 +156,11 @@ extension RequestTruckTableViewController: RequestTruckDelegate, MFMessageCompos
     func messageComposeViewController(_ controller: MFMessageComposeViewController,
                                       didFinishWith result: MessageComposeResult) {
         // Check the result or perform other tasks.
+        if result == .sent{
+            tableView.reloadData()
+        }else{
+            // do nothing
+        }
         
         // Dismiss the message compose view controller.
         controller.dismiss(animated: true, completion: nil)
