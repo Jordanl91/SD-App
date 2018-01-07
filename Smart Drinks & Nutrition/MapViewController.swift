@@ -72,6 +72,42 @@ class MapViewController: UIViewController, CLLocationManagerDelegate,GMSMapViewD
         }
     }
 
+    func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
+        if truckStoreSegmentedControl.selectedSegmentIndex == 1{
+            let view = UIView(frame: CGRect.init(x: 0, y: 0, width: 200, height: 100))
+            view.backgroundColor = UIColor.white
+            view.layer.cornerRadius = 6
+            
+            let lbl1 = UILabel(frame: CGRect.init(x: 8, y: 8, width: view.frame.size.width - 16, height: 15))
+            lbl1.text = "Smart Drinks"
+            view.addSubview(lbl1)
+            
+            let lbl2 = UILabel(frame: CGRect.init(x: lbl1.frame.origin.x, y: lbl1.frame.origin.y + lbl1.frame.size.height + 3, width: view.frame.size.width - 16, height: 60))
+                lbl2.numberOfLines = 3
+            lbl2.text = """
+                12343 Barker Cypress,
+                Ste. 250 Cypress,
+                TX 77249
+            """
+            if #available(iOS 8.2, *) {
+                lbl2.font = UIFont.systemFont(ofSize: 14, weight: .light)
+            } else {
+                // Fallback on earlier versions
+            }
+            view.addSubview(lbl2)
+            return view
+        }else{
+            let view = UIView(frame: CGRect.init(x: 0, y: 0, width: 200, height: 44))
+            view.backgroundColor = UIColor.white
+            view.layer.cornerRadius = 6
+            let lbl1 = UILabel(frame: CGRect.init(x: 8, y: 8, width: view.frame.size.width - 16, height: 15))
+            lbl1.text = "\(marker.title ?? "")"
+            view.addSubview(lbl1)
+            return view
+        }
+        
+        }
+    
     func getTrucksLocation(){
         SDNGlobal.sdnInstance.getDevices(completionHandler:{
             (success, error) -> Void in
@@ -238,7 +274,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate,GMSMapViewD
         
         for marker in SDNGlobal.sdnInstance.coordinates {
             bounds = bounds.includingCoordinate(CLLocationCoordinate2DMake(marker["lat"] as! CLLocationDegrees, marker["lng"] as! CLLocationDegrees))
-            mapView.animate(with: GMSCameraUpdate.fit(bounds, withPadding: 50.0))
+            mapView.animate(with: GMSCameraUpdate.fit(bounds, withPadding: 90.0))
         }
         
         for (index,location) in SDNGlobal.sdnInstance.coordinates.enumerated(){
@@ -264,12 +300,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate,GMSMapViewD
         let camera = GMSCameraPosition.camera(withLatitude: storeLat, longitude: storeLng, zoom: 12.0)
         self.mapView.camera = camera
         // draw the markers
-        let markerImage = UIImage(named: "Store_Marker")!.withRenderingMode(.alwaysTemplate)
-        let markerView = UIImageView(image: markerImage)
         let marker = GMSMarker()
         marker.position = CLLocationCoordinate2D(latitude:storeLat, longitude: storeLng)
-        marker.iconView = markerView
-        marker.title = "Smart Drinks, 12343 Barker Cypress, Ste. 250 Cypress, TX 77249"
+        marker.icon = UIImage(named: "Store_Marker")
+       // marker.title = "Smart Drinks, 12343 Barker Cypress, Ste. 250 Cypress, TX 77249"
         marker.snippet = address
         marker.map = mapView
     }
