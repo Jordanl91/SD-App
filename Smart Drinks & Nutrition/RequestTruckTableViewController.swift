@@ -140,15 +140,25 @@ extension RequestTruckTableViewController: RequestTruckDelegate, MFMessageCompos
         if !MFMessageComposeViewController.canSendText() {
             print("SMS services are not available")
         }else{
-            let composeVC = MFMessageComposeViewController()
-            composeVC.messageComposeDelegate = self
             
-            // Configure the fields of the interface.
-            composeVC.recipients = ["phani@techsoftinc.net"]
-            composeVC.body = "Name:\(sender.nameTextField.text!)\nPhone:\(sender.phoneNumber.text!)\nDate:\(sender.dateField.text!)\nCustomers:\(sender.numberOfCustomerField.text!)\nAddress:\(sender.addressTextField.text!)\nNotes:\(sender.notes.text!)"
             
-            // Present the view controller modally.
-            self.present(composeVC, animated: true, completion: nil)
+            let alert = UIAlertController(title: "Data/MMS Alert", message: "Cellular data or MMS charges may apply.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel action"), style: .`default`, handler: { _ in
+                NSLog("The \"OK\" alert occured.")
+            }))
+            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Ok action"), style: .`default`, handler: { _ in
+                let composeVC = MFMessageComposeViewController()
+                composeVC.messageComposeDelegate = self
+                
+                // Configure the fields of the interface.
+                composeVC.recipients = ["requesttruck@smartdrinks.com"]
+                composeVC.body = "Name:\(sender.nameTextField.text!)\nPhone:\(sender.phoneNumber.text!)\nDate:\(sender.dateField.text!)\nCustomers:\(sender.numberOfCustomerField.text!)\nAddress:\(sender.addressTextField.text!)\nNotes:\(sender.notes.text!)"
+                
+                // Present the view controller modally.
+                self.present(composeVC, animated: true, completion: nil)
+            }))
+            self.present(alert, animated: true, completion: nil)
+            
             
         }
     }
@@ -169,7 +179,7 @@ extension RequestTruckTableViewController: RequestTruckDelegate, MFMessageCompos
     
     func showAlert(){
         //This method called when the required fields are not satisfied.
-        let alert = UIAlertController(title: "Missing fields", message: "Please enter all the mandatory fields", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Missing fields", message: "Please enter all required fields", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .`default`, handler: { _ in
             NSLog("The \"OK\" alert occured.")
         }))

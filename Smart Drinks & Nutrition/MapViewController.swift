@@ -89,12 +89,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate,GMSMapViewD
 
     func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
         if truckStoreSegmentedControl.selectedSegmentIndex == 1{
-            let view = UIView(frame: CGRect.init(x: 0, y: 0, width: 200, height: 100))
+            let view = UIView(frame: CGRect.init(x: 0, y: 0, width: 250, height: 100))
             view.backgroundColor = UIColor.white
             view.layer.cornerRadius = 6
             
             let lbl1 = UILabel(frame: CGRect.init(x: 8, y: 8, width: view.frame.size.width - 16, height: 15))
-            lbl1.text = "Smart Drinks"
+            lbl1.text = "Smart Drinks & Nutrition"
             view.addSubview(lbl1)
             
             let lbl2 = UILabel(frame: CGRect.init(x: lbl1.frame.origin.x, y: lbl1.frame.origin.y + lbl1.frame.size.height + 3, width: view.frame.size.width - 16, height: 60))
@@ -318,7 +318,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate,GMSMapViewD
         let marker = GMSMarker()
         marker.position = CLLocationCoordinate2D(latitude:storeLat, longitude: storeLng)
         marker.icon = UIImage(named: "Store_Marker")
-       // marker.title = "Smart Drinks, 12343 Barker Cypress, Ste. 250 Cypress, TX 77249"
+        marker.title = "Smart Drinks, 12343 Barker Cypress, Ste. 250 Cypress, TX 77249"
         marker.snippet = address
         marker.map = mapView
     }
