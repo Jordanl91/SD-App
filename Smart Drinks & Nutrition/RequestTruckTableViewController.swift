@@ -12,6 +12,7 @@ protocol RequestTruckDelegate : class {
     func didPressedRequestTruck(sender: NutritionTableViewCell)
     func showAlert()
     func dismissKeyboard()
+    func wrongEmailAlert()
     //func showDatePicker(sender:NutritionTableViewCell)
 }
 
@@ -24,9 +25,13 @@ class RequestTruckTableViewController: UITableViewController {
         tableView.tableFooterView = UIView()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
+        
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Clear", style: .plain, target: self, action: #selector(clearAll))
+    }
+    
+    @objc func clearAll(){
+        tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -185,6 +190,14 @@ extension RequestTruckTableViewController: RequestTruckDelegate, MFMessageCompos
         }))
         self.present(alert, animated: true, completion: nil)
 
+    }
+    
+    func wrongEmailAlert(){
+        let alert = UIAlertController(title: "Invalid Email", message: "Enter a valid email address", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .`default`, handler: { _ in
+            NSLog("The \"OK\" alert occured.")
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
     
     func dismissKeyboard() {

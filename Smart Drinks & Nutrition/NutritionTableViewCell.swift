@@ -52,6 +52,7 @@ class NutritionTableViewCell: UITableViewCell, UITextFieldDelegate, UIPickerView
         phoneNumber.delegate = self
 //        numberOfCustomersPicker.delegate = self
         truckDatePicker.minimumDate = Date()
+        truckDatePicker.maximumDate = Calendar.current.date(byAdding: .year, value: 1, to: Date())
         truckDatePicker.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
         dateField.inputView = truckDatePicker
         numberOfCustomerField.inputView = pickerView
@@ -63,10 +64,19 @@ class NutritionTableViewCell: UITableViewCell, UITextFieldDelegate, UIPickerView
 
     @IBAction func requestTapped(_ sender: Any) {
         if (nameTextField.text!.removingWhitespaces().count != 0 && addressTextField.text.removingWhitespaces().count != 0 && dateField.text!.removingWhitespaces().count != 0 ) {
-            delegate?.didPressedRequestTruck(sender: self)
+            if emailField.text?.removingWhitespaces().count == 0 {
+                delegate?.didPressedRequestTruck(sender: self)
+            }else{
+                if isValidEmailAddress(emailAddressString: emailField.text!) {
+                    delegate?.didPressedRequestTruck(sender: self)
+                }else{
+                    delegate?.wrongEmailAlert()
+                }
+            }
         }else{
             print(nameTextField.text!.removingWhitespaces().count,addressTextField.text.removingWhitespaces().count,dateField.text!.removingWhitespaces().count)
             // throw alert.
+
             delegate?.showAlert()
         }
     }
@@ -129,6 +139,29 @@ class NutritionTableViewCell: UITableViewCell, UITextFieldDelegate, UIPickerView
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd/yyyy"
         dateField.text = dateFormatter.string(from:sender.date)
+    }
+    
+    func isValidEmailAddress(emailAddressString: String) -> Bool {
+        
+        var returnValue = true
+        let emailRegEx = "[A-Z0-9a-z.-_]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,3}"
+        
+        do {
+            let regex = try NSRegularExpression(pattern: emailRegEx)
+            let nsString = emailAddressString as NSString
+            let results = regex.matches(in: emailAddressString, range: NSRange(location: 0, length: nsString.length))
+            
+            if results.count == 0
+            {
+                returnValue = false
+            }
+            
+        } catch let error as NSError {
+            print("invalid regex: \(error.localizedDescription)")
+            returnValue = false
+        }
+        
+        return  returnValue
     }
 
 }
