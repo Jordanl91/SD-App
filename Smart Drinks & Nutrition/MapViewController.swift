@@ -10,6 +10,7 @@ import UIKit
 import GoogleMaps
 import GooglePlaces
 import GooglePlacePicker
+import MapKit
 
 class MapViewController: UIViewController, CLLocationManagerDelegate,GMSMapViewDelegate {
     
@@ -68,7 +69,21 @@ class MapViewController: UIViewController, CLLocationManagerDelegate,GMSMapViewD
             UIApplication.shared.openURL(URL(string:
                 "comgooglemaps://?daddr=\(marker.position.latitude),\(marker.position.longitude)&directionsmode=driving")!)
         } else {
-            print("Can't use comgooglemaps://");
+            print("Can't use comgooglemaps://")
+            if UIApplication.shared.canOpenURL(URL(string:"http://maps.apple.com")!){
+                let regionDistance:CLLocationDistance = 10000
+                let coordinates = CLLocationCoordinate2DMake(marker.position.latitude, marker.position.longitude)
+                let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates, regionDistance, regionDistance)
+                let options = [
+                    MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
+                    MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
+                ]
+                let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
+                let mapItem = MKMapItem(placemark: placemark)
+                print(marker.title!)
+                mapItem.name = marker.title!
+                mapItem.openInMaps(launchOptions: options)
+            }
         }
     }
 
