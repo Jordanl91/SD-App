@@ -24,8 +24,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate,GMSMapViewD
     var truckLocation = [String:Any]()
     var address = String()
     var idsArray = [Int]()
-    let storeLat = 29.9573183
-    let storeLng = -95.6747608
+    let storeLat = 29.957623
+    let storeLng = -95.672420
     let defaults = UserDefaults.standard
    
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
