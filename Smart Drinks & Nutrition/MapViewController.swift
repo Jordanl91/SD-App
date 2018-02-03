@@ -26,6 +26,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate,GMSMapViewD
     var idsArray = [Int]()
     let storeLat = 29.9573183
     let storeLng = -95.6747608
+    let defaults = UserDefaults.standard
    
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
@@ -38,7 +39,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate,GMSMapViewD
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         locationManager.delegate = self as? CLLocationManagerDelegate
-        getTrucksLocation()
+        loadMapDataForTrucks()
 //        placesClient = GMSPlacesClient.shared()
 //        placesClient.currentPlace(callback: { (placeLikelihoodList, error) -> Void in
 //            if let error = error {
@@ -127,8 +128,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate,GMSMapViewD
         SDNGlobal.sdnInstance.getDevices(completionHandler:{
             (success, error) -> Void in
             DispatchQueue.main.async{
-                self.activityIndicator.startAnimating()
                 self.activityIndicator.hidesWhenStopped = true
+                self.activityIndicator.startAnimating()
             }
             if error == nil {
                 self.idsArray.removeAll()
@@ -194,6 +195,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate,GMSMapViewD
                                 // when ever there is an error
                                 DispatchQueue.main.async {
                                     self.activityIndicator.stopAnimating()
+                                    self.errorAlert(withError: (error?.localizedDescription)!)
                                     
                                 }
                                 
@@ -206,8 +208,84 @@ class MapViewController: UIViewController, CLLocationManagerDelegate,GMSMapViewD
                 }
                 
                 
+            }else{
+                DispatchQueue.main.async {
+                    self.activityIndicator.stopAnimating()
+                    self.errorAlert(withError: (error?.localizedDescription)!)
+                }
             }
         })
+    }
+    
+    
+    @objc func loadMapDataForTrucks(){
+        if defaults.value(forKey: "HASH_VALUE") != nil {
+            print("There is an existing token")
+            SDNGlobal.sdnInstance.urlHash = self.defaults.value(forKey: "HASH_VALUE") as! String
+        SDNGlobal.sdnInstance.getDevices(completionHandler:
+            {(success,error) -> Void in
+                if error == nil{
+                    if let valid = SDNGlobal.sdnInstance.devicesJson["success"] as? Bool{
+                        if valid{
+                            // The hash is good dont do anything
+                            print("Token is good")
+                            self.getTrucksLocation()
+
+                        }else{
+                            // go get the new hash
+                            print("Getting Token")
+                            SDNGlobal.sdnInstance.getHash(completionHandler:{
+                                (success,error) -> Void in
+                                if error == nil{
+                                    if let hash = SDNGlobal.sdnInstance.hashJson["hash"] as? String{
+                                        print("Saving hash \(hash)")
+                                        self.defaults.setValue(hash, forKey: "HASH_VALUE")
+                                        SDNGlobal.sdnInstance.urlHash = hash
+                                        self.getTrucksLocation()
+
+                                    }
+                                }else{
+                                    DispatchQueue.main.async {
+                                        self.activityIndicator.stopAnimating()
+                                        self.errorAlert(withError: (error?.localizedDescription)!)
+                                    }
+                                }
+                            })
+                        }
+                    }
+                }else{
+                    //MARK: -Handle network issues
+                    print("Localized Description: \(error?.localizedDescription,error?.code)")
+                    DispatchQueue.main.async {
+                        self.activityIndicator.stopAnimating()
+                        self.activityIndicator.hidesWhenStopped = true
+                        self.errorAlert(withError: (error?.localizedDescription)!)
+                    }
+                    
+                }
+            }
+        )
+        }else{
+            print("There is no token getting one....")
+            SDNGlobal.sdnInstance.getHash(completionHandler:{
+                (success,error) -> Void in
+                if error == nil{
+                    if let hash = SDNGlobal.sdnInstance.hashJson["hash"] as? String{
+                        print("Saving hash \(hash)")
+                        SDNGlobal.sdnInstance.urlHash = hash
+                        self.defaults.setValue(hash, forKey: "HASH_VALUE")
+                        self.getTrucksLocation()
+                        
+                    }
+                }else{
+                    DispatchQueue.main.async {
+                        self.errorAlert(withError: (error?.localizedDescription)!)
+                    }
+                    print(String(describing: error?.code), error.debugDescription)
+                }
+            })
+        }
+        
     }
 
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -345,7 +423,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate,GMSMapViewD
     @IBAction func didChangeSegment(_ sender: Any) {
         if (sender as AnyObject).selectedSegmentIndex == 0 {
             //get trucks new location
-            getTrucksLocation()
+            loadMapDataForTrucks()
             
         }else{
             getPhysicalStoreLocation()
@@ -355,4 +433,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate,GMSMapViewD
         
     }
     
+    func errorAlert(withError description:String){
+        let alert = UIAlertController(title: "Error", message: description, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .`default`, handler: { _ in
+            NSLog("The \"OK\" alert occured.")
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
 }
