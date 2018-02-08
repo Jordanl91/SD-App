@@ -63,7 +63,7 @@ class NutritionTableViewCell: UITableViewCell, UITextFieldDelegate, UIPickerView
     }
 
     @IBAction func requestTapped(_ sender: Any) {
-        if (nameTextField.text!.removingWhitespaces().count != 0 && addressTextField.text.removingWhitespaces().count != 0 && dateField.text!.removingWhitespaces().count != 0 ) {
+        if (nameTextField.text!.removingWhitespaces().count != 0 && addressTextField.text.removingWhitespaces().count != 0 && dateField.text!.removingWhitespaces().count != 0 && numberOfCustomerField.text?.removingWhitespaces().count != 0) {
             if emailField.text?.removingWhitespaces().count == 0 {
                 delegate?.didPressedRequestTruck(sender: self)
             }else{
@@ -113,25 +113,21 @@ class NutritionTableViewCell: UITableViewCell, UITextFieldDelegate, UIPickerView
     func pickerView
         (_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         
-            return 7
+            return 6
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if row == 5{
-            return "\(row*10)-\(row*20)"
-        }else if row == 6{
             return "100+"
         }else{
-          return "\(String(row*10+1))-\(String((row+1)*10))"
+          return "\(String((row+1)*10+1))-\(String((row+2)*10))"
         }
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
             if row == 5{
-                numberOfCustomerField.text = "\(row*10)-\(row*20)"
-            }else if row == 6{
                 numberOfCustomerField.text = "100+"
             }else{
-                numberOfCustomerField.text = "\(String(row*10+1))-\(String((row+1)*10))"
+                numberOfCustomerField.text = "\(String((row+1)*10+1))-\(String((row+2)*10))"
             }
     }
     

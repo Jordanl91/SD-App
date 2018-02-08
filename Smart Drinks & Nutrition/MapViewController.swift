@@ -24,6 +24,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate,GMSMapViewD
     var truckLocation = [String:Any]()
     var address = String()
     var idsArray = [Int]()
+    var truckLabels = [String]()
     let storeLat = 29.957623
     let storeLng = -95.672420
     let defaults = UserDefaults.standard
@@ -113,10 +114,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate,GMSMapViewD
             view.addSubview(lbl2)
             return view
         }else{
-            let view = UIView(frame: CGRect.init(x: 0, y: 0, width: 200, height: 44))
+            let view = UIView(frame: CGRect.init(x: 0, y: 0, width: 150, height: 44))
             view.backgroundColor = UIColor.white
             view.layer.cornerRadius = 6
             let lbl1 = UILabel(frame: CGRect.init(x: 8, y: 8, width: view.frame.size.width - 16, height: 15))
+            lbl1.textAlignment = .center
             lbl1.text = "\(marker.title ?? "")"
             view.addSubview(lbl1)
             return view
@@ -133,12 +135,16 @@ class MapViewController: UIViewController, CLLocationManagerDelegate,GMSMapViewD
             }
             if error == nil {
                 self.idsArray.removeAll()
+                self.truckLabels.removeAll()
                 SDNGlobal.sdnInstance.coordinates.removeAll()
                 print("after getting \(SDNGlobal.sdnInstance.devicesJson)")
                 if let list = SDNGlobal.sdnInstance.devicesJson["list"] as? [[String:Any]]{
                     for tracker in list{
                         if let ids = tracker["id"] as? Int {
                             self.idsArray.append(ids)
+                        }
+                        if let labels = tracker["label"] as? String{
+                            self.truckLabels.append(labels)
                         }
                     }
                     // now you got the ids make API calls for each id to get their locations
@@ -376,7 +382,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate,GMSMapViewD
             let marker = GMSMarker()
             marker.position = CLLocationCoordinate2D(latitude: (location["lat"] as? Double)!, longitude: (location["lng"] as? Double)!)
             marker.icon = UIImage(named: "TruckMarker")
-            marker.title = "Smart Drinks Truck \(index+1)"
+            marker.title = truckLabels[index]
             marker.snippet = address
             marker.map = mapView
         }
