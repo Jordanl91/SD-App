@@ -590,8 +590,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8ze-5S-3Tg" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8ze-5S-3Tg" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="delegate" destination="KM9-tl-Sct" id="Yqx-xs-cuV"/>
@@ -616,19 +617,22 @@
                         <constraints>
                             <constraint firstItem="8bb-qW-IDz" firstAttribute="leading" secondItem="X9h-fM-lRh" secondAttribute="leadingMargin" id="64A-KG-G7W"/>
                             <constraint firstItem="8bb-qW-IDz" firstAttribute="trailing" secondItem="X9h-fM-lRh" secondAttribute="trailingMargin" id="BAa-ax-WD7"/>
-                            <constraint firstAttribute="trailing" secondItem="8ze-5S-3Tg" secondAttribute="trailing" id="BHS-We-mFM"/>
-                            <constraint firstAttribute="bottom" secondItem="8ze-5S-3Tg" secondAttribute="bottom" id="Pdj-gF-sb0"/>
                             <constraint firstItem="LCa-Zb-SbM" firstAttribute="centerY" secondItem="X9h-fM-lRh" secondAttribute="centerY" id="X3o-6z-HwT"/>
-                            <constraint firstItem="8ze-5S-3Tg" firstAttribute="leading" secondItem="X9h-fM-lRh" secondAttribute="leading" id="cZe-FJ-kvq"/>
                             <constraint firstItem="8bb-qW-IDz" firstAttribute="top" secondItem="Kui-fA-yln" secondAttribute="bottom" constant="8" id="daC-30-WJs"/>
                             <constraint firstItem="LCa-Zb-SbM" firstAttribute="centerX" secondItem="X9h-fM-lRh" secondAttribute="centerX" id="jOe-rQ-8K8"/>
-                            <constraint firstItem="8ze-5S-3Tg" firstAttribute="top" secondItem="X9h-fM-lRh" secondAttribute="top" id="jUb-WU-klj"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Locations" id="Hf4-TT-wSd"/>
+                    <navigationItem key="navigationItem" title="Locations" id="Hf4-TT-wSd">
+                        <barButtonItem key="rightBarButtonItem" title="Refresh" id="4sq-Ik-9jd">
+                            <connections>
+                                <action selector="refreshTapped:" destination="KM9-tl-Sct" id="Cqy-pp-mQC"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="activityIndicator" destination="LCa-Zb-SbM" id="jeK-D4-W24"/>
                         <outlet property="mapView" destination="8ze-5S-3Tg" id="M5q-qd-TTS"/>
+                        <outlet property="refreshButton" destination="4sq-Ik-9jd" id="Lzl-ag-C3O"/>
                         <outlet property="truckStoreSegmentedControl" destination="8bb-qW-IDz" id="dLm-Jn-LMF"/>
                     </connections>
                 </viewController>

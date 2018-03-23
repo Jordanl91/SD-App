@@ -31,39 +31,28 @@ class MapViewController: UIViewController, CLLocationManagerDelegate,GMSMapViewD
    
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    @IBOutlet weak var refreshButton: UIBarButtonItem!
     override func viewDidLoad() {
         super.viewDidLoad()
         //houston city latitude and longitude
         let camera = GMSCameraPosition.camera(withLatitude: 29.7604, longitude: -95.3698, zoom: 12.0)
         self.mapView.camera = camera
+        mapView.isMyLocationEnabled = true
+        mapView.settings.myLocationButton = true
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.startUpdatingLocation()
-        locationManager.delegate = self as? CLLocationManagerDelegate
+        locationManager.delegate = self
+        refreshButton.tintColor = .white
         loadMapDataForTrucks()
-//        placesClient = GMSPlacesClient.shared()
-//        placesClient.currentPlace(callback: { (placeLikelihoodList, error) -> Void in
-//            if let error = error {
-//                print("Pick Place error: \(error.localizedDescription)")
-//                return
-//            }
-//
-//            if let placeLikelihoodList = placeLikelihoodList {
-//                let place = placeLikelihoodList.likelihoods.first?.place
-//                if let place = place {
-//                    print(place.name)
-//                    print(place.coordinate)
-//                    print(place.formattedAddress?.components(separatedBy: ", ").joined(separator: "\n") as Any)
-//                }
-//            }
-//        })
-        
-
-
-//        print("\(latitude)...... \(longitude)")
-        // Do any additional setup after loading the view.
     }
     
+    @IBAction func refreshTapped(_ sender: Any) {
+        // refresh the truck location
+        if truckStoreSegmentedControl.selectedSegmentIndex == 0{
+            loadMapDataForTrucks()
+        }
+        
+        
+    }
     
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
         if (UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!)) {
@@ -306,62 +295,57 @@ class MapViewController: UIViewController, CLLocationManagerDelegate,GMSMapViewD
             print("Location status not determined.")
         case .authorizedAlways: fallthrough
         case .authorizedWhenInUse:
+            locationManager.startUpdatingLocation()
+            
+            //5
+
             print("Location status is OK.")
-//            placesClient = GMSPlacesClient.shared()
-//            placesClient.currentPlace(callback: { (placeLikelihoodList, error) -> Void in
-//                if let error = error {
-//                    print("Pick Place error: \(error.localizedDescription)")
-//                    return
-//                }
-//
-//                if let placeLikelihoodList = placeLikelihoodList {
-//                    let place = placeLikelihoodList.likelihoods.first?.place
-//                    if let place = place {
-//                        print(place.name)
-//                        print(place.formattedAddress?.components(separatedBy: ", ").joined(separator: "\n") as Any)
-//                        //                        self.getStarbucksNearMe(location: place.coordinate)
-//                        //populate list of starbucks location in a table view
-//
-//
-//                    }
-//                }
-//            })
         }
     }
     
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = locations.first else {
+            return
+        }
+        
+        // 7
+        mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
+        
+        // 8
+        locationManager.stopUpdatingLocation()
+    }
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         locationManager.stopUpdatingLocation()
         print("Error: \(error)")
     }
     
+    func didTapMyLocationButton(for mapView: GMSMapView) -> Bool {
+        // if location allowed
+        if CLLocationManager.locationServicesEnabled() {
+            switch CLLocationManager.authorizationStatus() {
+            case .notDetermined:
+                locationManager.requestWhenInUseAuthorization()
+                print("Not determined. so request auth")
+            case .restricted, .denied:
+                print("throw alert")
+                locationAlert(withAlert: "Please enable location services in settings")
+            case .authorizedAlways, .authorizedWhenInUse:
+                print("Access")
+                locationManager.startUpdatingLocation()
+            }
+        } else {
+            print("Location services are not enabled")
+            return false
+        }
+        // else block all and prompt to enable the locations in the settings
+        return true
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        //print(" In did appear \(latitude)...... \(longitude)")
-//        let camera = GMSCameraPosition.camera(withLatitude: (SDNGlobal.sdnInstance.coordinates[0]["lat"] as? Double)!, longitude: (SDNGlobal.sdnInstance.coordinates[0]["lng"] as? Double)!, zoom: 12.0)
-//        let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
-//        view = mapView
-//        let myLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake(SDNGlobal.sdnInstance.coordinates[0]["lat"] as! CLLocationDegrees, SDNGlobal.sdnInstance.coordinates[0]["lng"] as! CLLocationDegrees)
-//        var bounds: GMSCoordinateBounds = GMSCoordinateBounds(coordinate: myLocation, coordinate: myLocation)
-//
-//        for marker in SDNGlobal.sdnInstance.coordinates {
-//            bounds = bounds.includingCoordinate(CLLocationCoordinate2DMake(marker["lat"] as! CLLocationDegrees, marker["lng"] as! CLLocationDegrees))
-//            mapView.animate(with: GMSCameraUpdate.fit(bounds, withPadding: 50.0))
-//        }
-//
-//        for location in SDNGlobal.sdnInstance.coordinates{
-//        let markerImage = UIImage(named: "TruckMarker")!.withRenderingMode(.alwaysTemplate)
-//        let markerView = UIImageView(image: markerImage)
-//        let marker = GMSMarker()
-//        marker.position = CLLocationCoordinate2D(latitude: (location["lat"] as? Double)!, longitude: (location["lng"] as? Double)!)
-//        marker.iconView = markerView
-//        marker.title = "Truck location \(location["lat"]!),\(location["lng"]!)"
-//        marker.snippet = address
-//        marker.map = mapView
-//        }
     }
     
     func showMap(){
@@ -380,11 +364,15 @@ class MapViewController: UIViewController, CLLocationManagerDelegate,GMSMapViewD
 //            let markerImage = UIImage(named: "TruckMarker")!.withRenderingMode(.alwaysTemplate)
 //            let markerView = UIImageView(image: markerImage)
             let marker = GMSMarker()
+//          check if the truck falls in the blocked region
+            //29.96757 , 29.97080  , -95.67190 , -95.66870
+            if !((location["lat"] as! Double) > 29.96757 && (location["lat"] as! Double) < 29.97080 && (location["lng"] as! Double > -95.67190) && (location["lng"] as! Double) < -95.66870){
             marker.position = CLLocationCoordinate2D(latitude: (location["lat"] as? Double)!, longitude: (location["lng"] as? Double)!)
             marker.icon = UIImage(named: "TruckMarker")
             marker.title = truckLabels[index]
             marker.snippet = address
             marker.map = mapView
+            }
         }
         DispatchQueue.main.async {
           self.activityIndicator.stopAnimating()
@@ -406,32 +394,15 @@ class MapViewController: UIViewController, CLLocationManagerDelegate,GMSMapViewD
         marker.snippet = address
         marker.map = mapView
     }
- 
-//    func focusMapToShowAllMarkers() {
-//        let myLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake(SDNGlobal.sdnInstance.coordinates[0]["lat"] as! CLLocationDegrees, SDNGlobal.sdnInstance.coordinates[0]["lng"] as! CLLocationDegrees)
-//        var bounds: GMSCoordinateBounds = GMSCoordinateBounds(coordinate: myLocation, coordinate: myLocation)
-//
-//        for marker in SDNGlobal.sdnInstance.coordinates {
-//            bounds = bounds.includingCoordinate(CLLocationCoordinate2DMake(marker["lat"] as! CLLocationDegrees, marker["lng"] as! CLLocationDegrees))
-//            self.mapView.animate(with: GMSCameraUpdate.fit(bounds, withPadding: 15.0))
-//        }
-//    }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
     @IBAction func didChangeSegment(_ sender: Any) {
         if (sender as AnyObject).selectedSegmentIndex == 0 {
             //get trucks new location
             loadMapDataForTrucks()
+            refreshButton.isEnabled = true
             
         }else{
+            refreshButton.isEnabled = false
             getPhysicalStoreLocation()
             //get physical stores location
             
@@ -443,6 +414,22 @@ class MapViewController: UIViewController, CLLocationManagerDelegate,GMSMapViewD
         let alert = UIAlertController(title: "Error", message: description, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .`default`, handler: { _ in
             NSLog("The \"OK\" alert occured.")
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    func locationAlert(withAlert description:String){
+        let alert = UIAlertController(title: "Location disabled", message: description, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: "Default action"), style: .`default`, handler: { _ in
+            NSLog("The \"OK\" alert occured.")
+        }))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Settings", comment: "Default action"), style: .`default`, handler: { _ in
+            NSLog("The \"OK\" alert occured.")
+            guard let settingsUrl = URL(string: UIApplicationOpenSettingsURLString) else {
+                return
+            }
+            if UIApplication.shared.canOpenURL(settingsUrl) {
+                    UIApplication.shared.openURL(settingsUrl)
+            }
         }))
         self.present(alert, animated: true, completion: nil)
     }
