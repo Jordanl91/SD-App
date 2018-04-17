@@ -171,6 +171,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate,GMSMapViewD
                                                     //show alert
                                                     DispatchQueue.main.async {
                                                         self.activityIndicator.stopAnimating()
+                                                        self.refreshButton.isEnabled = true
                                                         
                                                     }
                                                 }
@@ -191,6 +192,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate,GMSMapViewD
                                 DispatchQueue.main.async {
                                     self.activityIndicator.stopAnimating()
                                     self.errorAlert(withError: (error?.localizedDescription)!)
+                                    self.refreshButton.isEnabled = true
                                     
                                 }
                                 
@@ -207,6 +209,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate,GMSMapViewD
                 DispatchQueue.main.async {
                     self.activityIndicator.stopAnimating()
                     self.errorAlert(withError: (error?.localizedDescription)!)
+                    self.refreshButton.isEnabled = true
+                    
                 }
             }
         })
@@ -214,6 +218,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate,GMSMapViewD
     
     
     @objc func loadMapDataForTrucks(){
+        refreshButton.isEnabled = false
         if defaults.value(forKey: "HASH_VALUE") != nil {
             print("There is an existing token")
             SDNGlobal.sdnInstance.urlHash = self.defaults.value(forKey: "HASH_VALUE") as! String
@@ -243,6 +248,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate,GMSMapViewD
                                     DispatchQueue.main.async {
                                         self.activityIndicator.stopAnimating()
                                         self.errorAlert(withError: (error?.localizedDescription)!)
+                                        self.refreshButton.isEnabled = true
                                     }
                                 }
                             })
@@ -255,6 +261,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate,GMSMapViewD
                         self.activityIndicator.stopAnimating()
                         self.activityIndicator.hidesWhenStopped = true
                         self.errorAlert(withError: (error?.localizedDescription)!)
+                        self.refreshButton.isEnabled = true
                     }
                     
                 }
@@ -275,6 +282,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate,GMSMapViewD
                 }else{
                     DispatchQueue.main.async {
                         self.errorAlert(withError: (error?.localizedDescription)!)
+                        self.refreshButton.isEnabled = true
                     }
                     print(String(describing: error?.code), error.debugDescription)
                 }
@@ -375,7 +383,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate,GMSMapViewD
             }
         }
         DispatchQueue.main.async {
-          self.activityIndicator.stopAnimating()
+            self.activityIndicator.stopAnimating()
+            self.refreshButton.isEnabled = true
         }
         
         
@@ -399,7 +408,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate,GMSMapViewD
         if (sender as AnyObject).selectedSegmentIndex == 0 {
             //get trucks new location
             loadMapDataForTrucks()
-            refreshButton.isEnabled = true
+            //refreshButton.isEnabled = true
             
         }else{
             refreshButton.isEnabled = false
