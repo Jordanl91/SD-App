@@ -47,6 +47,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate,GMSMapViewD
     
     @IBAction func refreshTapped(_ sender: Any) {
         // refresh the truck location
+        print(Date().preciseLocalTime,Date().preciseGMTTime,Date().nanosecond)
+        print("This is a daylight : \(Date().dayLight, Date().dayLightOffSet)")
+        print(checkForBusinessHours())
         if truckStoreSegmentedControl.selectedSegmentIndex == 0{
             loadMapDataForTrucks()
         }
@@ -219,76 +222,85 @@ class MapViewController: UIViewController, CLLocationManagerDelegate,GMSMapViewD
     
     @objc func loadMapDataForTrucks(){
         refreshButton.isEnabled = false
-        if defaults.value(forKey: "HASH_VALUE") != nil {
-            print("There is an existing token")
-            SDNGlobal.sdnInstance.urlHash = self.defaults.value(forKey: "HASH_VALUE") as! String
-        SDNGlobal.sdnInstance.getDevices(completionHandler:
-            {(success,error) -> Void in
-                if error == nil{
-                    if let valid = SDNGlobal.sdnInstance.devicesJson["success"] as? Bool{
-                        if valid{
-                            // The hash is good dont do anything
-                            print("Token is good")
-                            self.getTrucksLocation()
+        if checkForBusinessHours(){
+            if defaults.value(forKey: "HASH_VALUE") != nil {
+                print("There is an existing token")
+                SDNGlobal.sdnInstance.urlHash = self.defaults.value(forKey: "HASH_VALUE") as! String
+            SDNGlobal.sdnInstance.getDevices(completionHandler:
+                {(success,error) -> Void in
+                    if error == nil{
+                        if let valid = SDNGlobal.sdnInstance.devicesJson["success"] as? Bool{
+                            if valid{
+                                // The hash is good dont do anything
+                                print("Token is good")
+                                self.getTrucksLocation()
 
-                        }else{
-                            // go get the new hash
-                            print("Getting Token")
-                            SDNGlobal.sdnInstance.getHash(completionHandler:{
-                                (success,error) -> Void in
-                                if error == nil{
-                                    if let hash = SDNGlobal.sdnInstance.hashJson["hash"] as? String{
-                                        print("Saving hash \(hash)")
-                                        self.defaults.setValue(hash, forKey: "HASH_VALUE")
-                                        SDNGlobal.sdnInstance.urlHash = hash
-                                        self.getTrucksLocation()
+                            }else{
+                                // go get the new hash
+                                print("Getting Token")
+                                SDNGlobal.sdnInstance.getHash(completionHandler:{
+                                    (success,error) -> Void in
+                                    if error == nil{
+                                        if let hash = SDNGlobal.sdnInstance.hashJson["hash"] as? String{
+                                            print("Saving hash \(hash)")
+                                            self.defaults.setValue(hash, forKey: "HASH_VALUE")
+                                            SDNGlobal.sdnInstance.urlHash = hash
+                                            self.getTrucksLocation()
 
+                                        }
+                                    }else{
+                                        DispatchQueue.main.async {
+                                            self.activityIndicator.stopAnimating()
+                                            self.errorAlert(withError: (error?.localizedDescription)!)
+                                            self.refreshButton.isEnabled = true
+                                        }
                                     }
-                                }else{
-                                    DispatchQueue.main.async {
-                                        self.activityIndicator.stopAnimating()
-                                        self.errorAlert(withError: (error?.localizedDescription)!)
-                                        self.refreshButton.isEnabled = true
-                                    }
-                                }
-                            })
+                                })
+                            }
                         }
-                    }
-                }else{
-                    //MARK: -Handle network issues
-                    print("Localized Description: \(error?.localizedDescription,error?.code)")
-                    DispatchQueue.main.async {
-                        self.activityIndicator.stopAnimating()
-                        self.activityIndicator.hidesWhenStopped = true
-                        self.errorAlert(withError: (error?.localizedDescription)!)
-                        self.refreshButton.isEnabled = true
-                    }
-                    
-                }
-            }
-        )
-        }else{
-            print("There is no token getting one....")
-            SDNGlobal.sdnInstance.getHash(completionHandler:{
-                (success,error) -> Void in
-                if error == nil{
-                    if let hash = SDNGlobal.sdnInstance.hashJson["hash"] as? String{
-                        print("Saving hash \(hash)")
-                        SDNGlobal.sdnInstance.urlHash = hash
-                        self.defaults.setValue(hash, forKey: "HASH_VALUE")
-                        self.getTrucksLocation()
+                    }else{
+                        //MARK: -Handle network issues
+                        print("Localized Description: \(error?.localizedDescription,error?.code)")
+                        DispatchQueue.main.async {
+                            self.activityIndicator.stopAnimating()
+                            self.activityIndicator.hidesWhenStopped = true
+                            self.errorAlert(withError: (error?.localizedDescription)!)
+                            self.refreshButton.isEnabled = true
+                        }
                         
                     }
-                }else{
-                    DispatchQueue.main.async {
-                        self.errorAlert(withError: (error?.localizedDescription)!)
-                        self.refreshButton.isEnabled = true
-                    }
-                    print(String(describing: error?.code), error.debugDescription)
                 }
-            })
-        }
+            )
+            }else{
+                print("There is no token getting one....")
+                SDNGlobal.sdnInstance.getHash(completionHandler:{
+                    (success,error) -> Void in
+                    if error == nil{
+                        if let hash = SDNGlobal.sdnInstance.hashJson["hash"] as? String{
+                            print("Saving hash \(hash)")
+                            SDNGlobal.sdnInstance.urlHash = hash
+                            self.defaults.setValue(hash, forKey: "HASH_VALUE")
+                            self.getTrucksLocation()
+                            
+                        }
+                    }else{
+                        DispatchQueue.main.async {
+                            self.errorAlert(withError: (error?.localizedDescription)!)
+                            self.refreshButton.isEnabled = true
+                        }
+                        print(String(describing: error?.code), error.debugDescription)
+                    }
+                })
+            }
         
+        }else{
+            print("Trucks are out of business")
+            mapView.clear()
+            activityIndicator.stopAnimating()
+            activityIndicator.hidesWhenStopped = true
+            refreshButton.isEnabled = true
+            // Throw alert that trucks are out of business
+        }
     }
 
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -442,4 +454,70 @@ class MapViewController: UIViewController, CLLocationManagerDelegate,GMSMapViewD
         }))
         self.present(alert, animated: true, completion: nil)
     }
+    
+    func checkForBusinessHours() -> Bool{
+        
+        // This logic works only for CDT not CST
+        let hour = Date().preciseGMTTime
+        if let hourInt = Int(hour) {
+            if hourInt - 5 > 0 {
+                // check for day
+                if hourInt - 5 >= 8 {
+                   // Time is greater than 8 AM CST
+                    return true
+                }else{
+                    return false
+                    // Time is before 8 AM CST for the day
+                }
+            }else{
+                if hourInt > 0 {
+                    return false
+                    // After 8PM in CST is 1AM in GMT
+                }else{
+                    // Time is before 8PM
+                    return true
+                }
+            }
+        }else{
+            //something went wrong
+            return true
+        }
+        
+    }
+
 }
+
+extension Formatter {
+    // create static date formatters for your date representations
+    static let preciseLocalTime: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH"
+        return formatter
+    }()
+    static let preciseGMTTime: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        formatter.dateFormat = "HH"
+        return formatter
+    }()
+}
+extension Date {
+    // you can create a read-only computed property to return just the nanoseconds from your date time
+    var nanosecond: Int { return Calendar.current.component(.nanosecond,  from: self)   }
+    // the same for your local time
+    var preciseLocalTime: String {
+        return Formatter.preciseLocalTime.string(for: self) ?? ""
+    }
+    // or GMT time
+    var preciseGMTTime: String {
+        return Formatter.preciseGMTTime.string(for: self) ?? ""
+    }
+    
+    var dayLight:Bool{
+        return Formatter.preciseLocalTime.timeZone.isDaylightSavingTime()
+    }
+    var dayLightOffSet:Double{
+        return Formatter.preciseLocalTime.timeZone.daylightSavingTimeOffset()
+    }
+}
+
